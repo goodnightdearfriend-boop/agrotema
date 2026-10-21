@@ -1,0 +1,415 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Agrotema — сільгосптехніка в Лебедині, Сумська область</title>
+<meta name="description" content="Продаж сільгосптехніки: трактори МТЗ, New Holland, Case, жатки John Deere, сівалки, плуги, КамАЗи та причепи. Лебедин і с. Токарі, Сумська область. Тел. +380 99 466 71 28">
+<meta property="og:title" content="Agrotema — сільгосптехніка в наявності">
+<meta property="og:description" content="Трактори, жатки, сівалки, плуги, вантажівки. Лебедин, Сумська обл. +380 99 466 71 28">
+<meta property="og:image" content="t/28.jpg">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#1f5130">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;800&family=Manrope:wght@400;500;600;700;800&display=swap">
+<style>
+/* Layout: sticky dealer bar · compact hero with contacts · chip-filtered stock grid · full-screen listing sheet with gallery */
+:root{
+  --bg:#f3f5ef; --surface:#ffffff; --ink:#18241b; --muted:#5d6b60; --line:#dde3d6;
+  --field:#1f5130; --field-ink:#ffffff; --harvest:#f2b705; --harvest-ink:#1b1606; --chip:#e8ede2;
+  --shadow:0 1px 2px rgba(24,36,27,.06),0 8px 24px -12px rgba(24,36,27,.18);
+  --display:"Unbounded","Arial Black",system-ui,sans-serif;
+  --body:"Manrope",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --r:14px;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0e1510; --surface:#162019; --ink:#e9efe6; --muted:#9aa89c; --line:#26332a;
+  --field:#173d25; --field-ink:#ffffff; --harvest:#f5c329; --harvest-ink:#1b1606; --chip:#1d2a21;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 28px -14px rgba(0,0,0,.7); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0e1510; --surface:#162019; --ink:#e9efe6; --muted:#9aa89c; --line:#26332a;
+  --field:#173d25; --field-ink:#ffffff; --harvest:#f5c329; --harvest-ink:#1b1606; --chip:#1d2a21;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 28px -14px rgba(0,0,0,.7); color-scheme:dark}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--field)}
+.wrap{max-width:1240px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+a{color:inherit}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--harvest);outline-offset:2px}
+.num{font-variant-numeric:tabular-nums}
+
+/* header */
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--field);color:var(--field-ink)}
+.bar .wrap{display:flex;align-items:center;gap:12px;padding-block:10px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;margin-right:auto;min-width:0}
+.logo b{font-family:var(--display);font-weight:800;font-size:19px;letter-spacing:.04em}
+.logo b span{color:var(--harvest)}
+.call{display:inline-flex;align-items:center;gap:8px;background:var(--harvest);color:var(--harvest-ink);font-weight:800;text-decoration:none;border-radius:999px;padding:9px 16px;white-space:nowrap}
+.call svg{flex:none}
+.icon-btn{width:40px;height:40px;border-radius:999px;display:inline-grid;place-items:center;border:1px solid rgba(255,255,255,.35);background:transparent;color:inherit;text-decoration:none;flex:none}
+.icon-btn:hover{background:rgba(255,255,255,.12)}
+.set{position:relative}
+.pop{position:absolute;right:0;top:48px;width:230px;background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);padding:14px;display:grid;gap:10px}
+.lbl{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.seg{display:flex;border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.seg button{flex:1;padding:7px 8px;border:0;background:transparent;font-weight:600;font-size:13px}
+.seg button.on{background:var(--field);color:var(--field-ink)}
+
+/* hero */
+.hero{background:var(--field);color:var(--field-ink);position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;inset:auto 0 0 0;height:46px;background:repeating-linear-gradient(100deg,transparent 0 22px,rgba(242,183,5,.13) 22px 26px);pointer-events:none}
+.hero .wrap{padding-block:26px 64px;display:grid;gap:22px;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);align-items:end;position:relative;z-index:1}
+.hero h1{font-family:var(--display);font-weight:700;font-size:clamp(26px,4.4vw,44px);line-height:1.08;margin:0 0 12px;text-wrap:balance}
+.hero h1 em{font-style:normal;color:var(--harvest)}
+.hero p{margin:0;max-width:56ch;color:rgba(255,255,255,.82);font-size:16px}
+.contact{background:rgba(0,0,0,.18);border:1px solid rgba(255,255,255,.16);border-radius:var(--r);padding:16px;display:grid;gap:12px}
+.contact .ph{font-family:var(--display);font-weight:700;font-size:clamp(20px,2.6vw,26px);letter-spacing:.01em;user-select:all}
+.contact .row{display:flex;flex-wrap:wrap;gap:8px}
+.mailrow{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;border-top:1px solid rgba(255,255,255,.16);padding-top:12px}
+.mailrow .ghost{user-select:all;word-break:break-all}
+.mailnote{font-size:13px;color:rgba(255,255,255,.72)}
+.pnote{font-family:var(--body);font-size:13px;font-weight:700;color:var(--muted);margin-left:6px}
+.ghost{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.4);border-radius:999px;padding:8px 14px;text-decoration:none;font-weight:700;background:transparent;color:inherit;font-size:14px}
+.ghost:hover{background:rgba(255,255,255,.1)}
+.stats{display:flex;gap:22px;margin-top:18px;flex-wrap:wrap}
+.stats div{display:grid}
+.stats b{font-family:var(--display);font-size:22px;color:var(--harvest)}
+.stats span{font-size:12px;color:rgba(255,255,255,.7);letter-spacing:.06em;text-transform:uppercase}
+
+/* tools */
+.tools{margin-top:-30px;position:relative;z-index:2}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);padding:14px;display:grid;gap:12px}
+.toprow{display:flex;gap:10px;flex-wrap:wrap}
+.search{flex:1 1 260px;min-width:0;position:relative}
+.search svg{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--muted)}
+.in{width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);font:inherit;font-size:14px}
+.search .in{padding-left:38px}
+select.in{width:auto;cursor:pointer}
+.chips{display:flex;gap:8px;overflow-x:auto;padding-bottom:2px;scrollbar-width:thin}
+.chip{flex:none;border:1px solid var(--line);background:var(--chip);border-radius:999px;padding:7px 13px;font-size:13px;font-weight:700;white-space:nowrap}
+.chip small{font-weight:600;color:var(--muted);margin-left:4px}
+.chip.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.chip.on small{color:inherit;opacity:.7}
+.more{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
+.more label{display:grid;gap:4px}
+.more .pair{display:flex;gap:6px}
+.more .pair .in{min-width:0}
+.linkbtn{background:none;border:0;padding:0;color:var(--muted);text-decoration:underline;font-size:13px;font-weight:600}
+.filt-toggle{display:none}
+
+/* grid */
+.meta-row{display:flex;justify-content:space-between;align-items:center;margin:18px 0 12px;gap:10px;flex-wrap:wrap}
+.meta-row .count{color:var(--muted);font-weight:600}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;padding-bottom:40px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;text-align:left;padding:0;transition:transform .18s,box-shadow .18s}
+.card:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
+.ph-box{position:relative;aspect-ratio:4/3;background:var(--chip);max-width:100%;overflow:hidden}
+.ph-box .bg{position:absolute;inset:-12px;width:calc(100% + 24px);height:calc(100% + 24px);object-fit:cover;filter:blur(14px) brightness(.8);transform:scale(1.05)}
+.ph-box .fg{position:relative;width:100%;height:100%;object-fit:contain;display:block}
+.badge{position:absolute;left:10px;bottom:10px;background:rgba(14,21,16,.72);color:#fff;font-size:12px;font-weight:700;border-radius:999px;padding:3px 9px;display:flex;gap:5px;align-items:center}
+.card .body{padding:12px 14px 14px;display:grid;gap:6px;flex:1;align-content:start}
+.kind{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.card h3{margin:0;font-size:16px;line-height:1.3;font-weight:800;text-wrap:balance}
+.price{font-family:var(--display);font-weight:700;font-size:21px;color:var(--field)}
+:root[data-theme="dark"] .price{color:var(--harvest)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .price{color:var(--harvest)}}
+.facts{display:flex;flex-wrap:wrap;gap:4px 10px;font-size:13px;color:var(--muted)}
+.loc{display:flex;gap:5px;align-items:center;font-size:13px;color:var(--muted)}
+.loc svg{flex:none}
+.empty{text-align:center;color:var(--muted);padding:48px 0}
+
+/* sheet */
+.sheet{position:fixed;inset:0;z-index:80;background:rgba(8,12,9,.66);display:flex;align-items:center;justify-content:center;padding:max(16px,env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) max(16px,env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
+.sheet-in{background:var(--surface);border-radius:18px;width:min(1080px,100%);max-height:100%;overflow:auto;display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);position:relative}
+.close{position:absolute;top:10px;right:10px;z-index:3;width:40px;height:40px;border-radius:999px;border:0;background:rgba(14,21,16,.7);color:#fff;font-size:20px;display:grid;place-items:center}
+.gal{background:#0b100c;display:flex;flex-direction:column;min-width:0}
+.stage{position:relative;height:min(72vh,680px);max-width:100%;overflow:hidden;touch-action:pan-y}
+.stage img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:block}
+.nav{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:999px;border:0;background:rgba(255,255,255,.88);color:#18241b;display:grid;place-items:center}
+.nav.p{left:10px}.nav.n{right:10px}
+.counter{position:absolute;right:12px;bottom:12px;background:rgba(14,21,16,.72);color:#fff;font-size:12px;font-weight:700;border-radius:999px;padding:3px 10px}
+.thumbs{display:flex;gap:6px;overflow-x:auto;padding:8px;scrollbar-width:thin}
+.thumbs button{flex:none;width:62px;height:62px;padding:0;border:2px solid transparent;border-radius:8px;overflow:hidden;background:#222;opacity:.6}
+.thumbs button.on{border-color:var(--harvest);opacity:1}
+.thumbs img{width:100%;height:100%;object-fit:cover;display:block}
+.thumbs img:not([src]),.thumbs img[src=""]{visibility:hidden}
+.info{padding:22px;display:grid;gap:14px;align-content:start;min-width:0}
+.info h2{margin:0;font-size:22px;line-height:1.25;font-weight:800;text-wrap:balance;padding-right:36px}
+.info .price{font-size:30px}
+.spec{display:grid;grid-template-columns:auto 1fr;gap:0;border-top:1px solid var(--line)}
+.spec dt,.spec dd{margin:0;padding:8px 0;border-bottom:1px solid var(--line);font-size:14px}
+.spec dt{color:var(--muted);padding-right:16px}
+.spec dd{font-weight:700;text-align:right}
+.desc{margin:0;font-size:15px;max-width:62ch}
+.cta{background:var(--chip);border-radius:var(--r);padding:14px;display:grid;gap:10px}
+.cta .ph{font-family:var(--display);font-weight:700;font-size:20px;user-select:all}
+.cta .row{display:flex;flex-wrap:wrap;gap:8px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:999px;padding:10px 16px;font-weight:800;text-decoration:none;border:0;font-size:14px}
+.btn.y{background:var(--harvest);color:var(--harvest-ink)}
+.btn.o{background:transparent;border:1px solid var(--line);color:var(--ink)}
+.hint{font-size:12px;color:var(--muted)}
+
+/* floating call (phone) */
+.fab{position:fixed;right:calc(16px + env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:70;display:none;align-items:center;gap:8px;background:var(--harvest);color:var(--harvest-ink);font-weight:800;text-decoration:none;border-radius:999px;padding:13px 18px;box-shadow:0 8px 24px -6px rgba(0,0,0,.45)}
+
+footer{border-top:1px solid var(--line);color:var(--muted);font-size:13px}
+footer .wrap{padding-block:22px 90px;display:flex;flex-wrap:wrap;gap:12px 24px;align-items:center;justify-content:space-between}
+footer a{font-weight:700;color:var(--ink)}
+
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(84px + env(safe-area-inset-bottom,0px));z-index:90;background:var(--ink);color:var(--bg);padding:9px 16px;border-radius:999px;font-weight:700;font-size:14px}
+
+@media (max-width:900px){
+  .stage{height:min(62vh,560px)}
+  .hero .wrap{grid-template-columns:minmax(0,1fr)}
+  .sheet{padding:0}
+  .sheet-in{grid-template-columns:minmax(0,1fr);border-radius:0;height:100%;max-height:none}
+  .filt-toggle{display:inline-flex}
+  .more.closed{display:none}
+  .fab{display:inline-flex}
+  .bar .call .txt{display:none}
+  .bar .call{padding:9px 11px}
+}
+@media (max-width:420px){.logo b{font-size:16px}.logo svg{width:32px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+
+<header class="bar">
+ <div class="wrap">
+  <a class="logo" href="#" onclick="closeSheet();scrollTo(0,0);return false" aria-label="Agrotema">
+   <svg width="40" height="30" viewBox="0 0 48 34" aria-hidden="true"><rect x="7" y="4" width="3" height="10" rx="1" fill="#d1d5db"/><path d="M4 14h16l4 6H4z" fill="#f2b705"/><rect x="20" y="5" width="15" height="17" rx="3" fill="#f2b705"/><rect x="23" y="8" width="9" height="7" rx="1.5" fill="#e0f2fe"/><rect x="4" y="19" width="31" height="5" fill="#c99500"/><circle cx="34" cy="24" r="9" fill="#0e1510"/><circle cx="34" cy="24" r="4" fill="#d1d5db"/><circle cx="11" cy="27" r="5" fill="#0e1510"/><circle cx="11" cy="27" r="2" fill="#d1d5db"/></svg>
+   <b>AGRO<span>TEMA</span></b>
+  </a>
+  <a class="call" href="tel:+380994667128" aria-label="Зателефонувати +380 99 466 71 28"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg><span class="txt num">+380 99 466 71 28</span></a>
+  <a class="icon-btn" href="https://www.tiktok.com/@agrotema.ua" target="_blank" rel="noopener" aria-label="TikTok @agrotema.ua"><svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.6 5.82A4.28 4.28 0 0 1 15.54 3h-3.09v12.4a2.59 2.59 0 1 1-2.59-2.6c.27 0 .53.04.77.12V9.77a5.7 5.7 0 0 0-.77-.05A5.68 5.68 0 1 0 15.54 15.4V9.01a7.35 7.35 0 0 0 4.3 1.38V7.3a4.28 4.28 0 0 1-3.24-1.48z"/></svg></a>
+  <div class="set">
+   <button class="icon-btn" id="setBtn" aria-label="Налаштування" aria-expanded="false"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></button>
+   <div class="pop" id="pop" hidden>
+    <div class="lbl" data-i="theme"></div>
+    <div class="seg"><button data-th="light" data-i="light"></button><button data-th="dark" data-i="dark"></button></div>
+    <div class="lbl" data-i="langL"></div>
+    <div class="seg"><button data-lg="uk">УКР</button><button data-lg="en">ENG</button></div>
+   </div>
+  </div>
+ </div>
+</header>
+
+<section class="hero">
+ <div class="wrap">
+  <div>
+   <h1 data-ih="hero"></h1>
+   <p data-i="sub"></p>
+   <div class="stats" id="stats"></div>
+  </div>
+  <div class="contact">
+   <div class="lbl" style="color:rgba(255,255,255,.7)" data-i="callUs"></div>
+   <div class="ph num">+380 99 466 71 28</div>
+   <div class="row">
+    <a class="call" href="tel:+380994667128"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg><span data-i="call"></span></a>
+    <button class="ghost" type="button" onclick="copyPhone()"><span data-i="copy"></span></button>
+    <a class="ghost" href="https://www.tiktok.com/@agrotema.ua" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.6 5.82A4.28 4.28 0 0 1 15.54 3h-3.09v12.4a2.59 2.59 0 1 1-2.59-2.6c.27 0 .53.04.77.12V9.77a5.7 5.7 0 0 0-.77-.05A5.68 5.68 0 1 0 15.54 15.4V9.01a7.35 7.35 0 0 0 4.3 1.38V7.3a4.28 4.28 0 0 1-3.24-1.48z"/></svg>@agrotema.ua</a>
+   </div>
+   <div class="mailrow"><a class="ghost" href="mailto:agrotema.ua@ukr.net"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>agrotema.ua@ukr.net</a><span class="mailnote" data-i="mailNote"></span></div>
+  </div>
+ </div>
+</section>
+
+<main class="wrap">
+ <div class="tools">
+  <div class="panel">
+   <div class="toprow">
+    <div class="search"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input id="q" class="in" type="search" autocomplete="off" data-p="search"></div>
+    <select id="sort" class="in" aria-label="Sort"></select>
+    <button class="chip filt-toggle" id="ft" type="button" aria-expanded="false"><span data-i="filters"></span></button>
+   </div>
+   <div class="chips" id="cats"></div>
+   <div class="chips" id="subs"></div>
+   <div class="more closed" id="more">
+    <label><span class="lbl" data-i="brand"></span><select id="brand" class="in" style="width:100%"></select></label>
+    <label id="regWrap"><span class="lbl" data-i="loc"></span><select id="reg" class="in" style="width:100%"></select></label>
+    <label><span class="lbl" data-i="price"></span><span class="pair"><input id="p1" class="in num" inputmode="numeric" data-p="from"><input id="p2" class="in num" inputmode="numeric" data-p="to"></span></label>
+    <label><span class="lbl" data-i="year"></span><span class="pair"><input id="y1" class="in num" inputmode="numeric" data-p="from"><input id="y2" class="in num" inputmode="numeric" data-p="to"></span></label>
+    <div style="display:flex;align-items:end"><button class="linkbtn" type="button" id="reset" data-i="reset"></button></div>
+   </div>
+  </div>
+ </div>
+ <div class="meta-row"><span class="count num" id="count"></span></div>
+ <div class="grid" id="grid"></div>
+ <p class="empty" id="empty" hidden data-i="nothing"></p>
+</main>
+
+<footer>
+ <div class="wrap">
+  <span>© 2026 Agrotema · <span data-i="foot"></span></span>
+  <span style="display:flex;gap:18px;flex-wrap:wrap"><a class="num" href="tel:+380994667128">+380 99 466 71 28</a><a href="https://www.tiktok.com/@agrotema.ua" target="_blank" rel="noopener">TikTok @agrotema.ua</a><a href="mailto:agrotema.ua@ukr.net">agrotema.ua@ukr.net</a></span>
+ </div>
+</footer>
+
+<a class="fab" href="tel:+380994667128"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg><span data-i="call"></span></a>
+
+<div class="sheet" id="sheet" hidden>
+ <div class="sheet-in" role="dialog" aria-modal="true" id="sheetIn"></div>
+</div>
+<div class="toast" id="toast" hidden></div>
+
+<script src="data/listings.js"></script>
+<script>
+const DATA=window.AGRO_DATA;
+const D=DATA.D, BR=DATA.BR, OTHER=17;
+const PHONE="+380 99 466 71 28", TEL="+380994667128", MAILADDR="agrotema.ua@ukr.net";
+const T={
+ hero:["Сільгосптехніка <em>в&nbsp;наявності</em>","Farm machinery <em>in&nbsp;stock</em>"],
+ sub:["Трактори, жатки, сівалки, плуги, вантажівки та причепи. Техніка в Лебедині та с. Токарі, Сумська область. Ціни в доларах. Дзвоніть, щоб дізнатися деталі й домовитися про огляд.","Tractors, headers, seed drills, ploughs, trucks and trailers. Located in Lebedyn and Tokari, Sumy Oblast. Prices in US dollars. Call us for details and to arrange a viewing."],
+ callUs:["Телефон для покупців","Phone for buyers"],call:["Зателефонувати","Call"],copy:["Скопіювати номер","Copy number"],copied:["Номер скопійовано","Number copied"],
+ theme:["Тема","Theme"],light:["Світла","Light"],dark:["Темна","Dark"],langL:["Мова","Language"],
+ search:["Пошук: модель, марка…","Search: model, make…"],filters:["Фільтри","Filters"],reset:["Скинути фільтри","Reset filters"],
+ brand:["Марка","Make"],region:["Область","Region"],price:["Ціна, $","Price, $"],year:["Рік випуску","Year"],from:["від","from"],to:["до","to"],all:["Усі","All"],
+ nothing:["Нічого не знайдено. Змініть фільтри або зателефонуйте нам.","Nothing found. Change the filters or give us a call."],
+ found:["Оголошень","Listings"],sNew:["Спочатку нові","Newest first"],sPa:["Ціна: дешевші","Price: low to high"],sPd:["Ціна: дорожчі","Price: high to low"],sY:["Рік: новіші","Year: newest"],
+ stItems:["оголошень","listings"],stPhotos:["фото","photos"],stCats:["категорії","categories"],
+ cat:["Категорія","Category"],type:["Тип","Type"],hp:["Потужність","Power"],hours:["Напрацювання","Engine hours"],cabin:["Кабіна","Cabin"],trans:["Коробка передач","Transmission"],
+ loc:["Місцезнаходження","Location"],locAsk:["Уточнюйте за телефоном","Ask by phone"],
+ hpu:["к.с.","hp"],hrs:["мтг","hrs"],yes:["Є","Yes"],manual:["Механічна","Manual"],
+ askTitle:["Цікавить ця техніка?","Interested in this machine?"],askHint:["Назвіть оголошення під час дзвінка, щоб ми швидше знайшли потрібну техніку.","Mention the listing name when you call so we can find it quickly."],
+ photo:["фото","photos"],prev:["Попереднє фото","Previous photo"],next:["Наступне фото","Next photo"],closeL:["Закрити","Close"],
+ mailNote:["Пошта для зв'язку та підтримки","Email for enquiries and support"],
+ foot:["продаж сільгосптехніки по Україні","farm machinery sales across Ukraine"]
+};
+const C={
+ tractors:[["Трактори","Tractors"],{wheel:["Колісні трактори","Wheeled tractors"]}],
+ harvesters:[["Жатки","Headers"],{header:["Жатки","Headers"]}],
+ transport:[["Вантажівки та причепи","Trucks & trailers"],{truck:["Вантажівки","Trucks"],trailer:["Причепи","Trailers"],cart:["Візки для жаток","Header carts"]}],
+ implements:[["Навісне та причіпне","Implements"],{seeder:["Сівалки","Seed drills"],plow:["Плуги","Ploughs"],harrow:["Борони","Harrows"],roller:["Котки","Rollers"],ripper:["Глибокорозпушувачі","Rippers"],sprayer:["Обприскувачі","Sprayers"]}]
+};
+const RG=[["Вінницька","Vinnytsia"],["Волинська","Volyn"],["Дніпропетровська","Dnipropetrovsk"],["Донецька","Donetsk"],["Житомирська","Zhytomyr"],["Закарпатська","Zakarpattia"],["Запорізька","Zaporizhzhia"],["Івано-Франківська","Ivano-Frankivsk"],["Київська","Kyiv"],["Кіровоградська","Kirovohrad"],["Луганська","Luhansk"],["Львівська","Lviv"],["Миколаївська","Mykolaiv"],["Одеська","Odesa"],["Полтавська","Poltava"],["Рівненська","Rivne"],["Сумська","Sumy"],["Тернопільська","Ternopil"],["Харківська","Kharkiv"],["Херсонська","Kherson"],["Хмельницька","Khmelnytskyi"],["Черкаська","Cherkasy"],["Чернівецька","Chernivtsi"],["Чернігівська","Chernihiv"]];
+
+const $=id=>document.getElementById(id);
+const ld=(k,d)=>{try{const v=localStorage.getItem(k);return v==null?d:JSON.parse(v)}catch(e){return d}};
+const sv=(k,v)=>{try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}};
+let lang=ld("ag_lang","uk"), theme=ld("ag_theme",null);
+const L=()=>lang=="uk"?0:1, t=k=>T[k][L()], n=a=>a[L()];
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const money=p=>"$ "+Number(p).toLocaleString(lang=="uk"?"uk-UA":"en-US");
+const IM={},LOADING={};
+const img=(x,k)=>`i/${x.id}-${String(k).padStart(2,"0")}.jpg`;
+function loadImgs(id){}
+const brand=x=>x.b===OTHER?"":BR[x.b];
+const PIN='<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M12 21s-7-6.1-7-11.5A7 7 0 0 1 19 9.5C19 14.9 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>';
+const CAM='<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M3 8h4l2-3h6l2 3h4v11H3z"/><circle cx="12" cy="13" r="3.5"/></svg>';
+const locTxt=x=>x.loc?(n(x.loc)+(x.r!=null?", "+n(RG[x.r])+(lang=="uk"?" обл.":" Oblast"):"")):t("locAsk");
+const locKey=x=>x.loc?x.loc[0]:"";
+
+let cat="", sub="";
+function applyTheme(){if(theme)document.documentElement.dataset.theme=theme;else delete document.documentElement.dataset.theme;
+ const dark=theme?theme=="dark":matchMedia("(prefers-color-scheme: dark)").matches;
+ document.querySelectorAll("[data-th]").forEach(b=>b.classList.toggle("on",(b.dataset.th=="dark")==dark));}
+function applyLang(){
+ document.documentElement.lang=lang;
+ document.querySelectorAll("[data-i]").forEach(e=>e.textContent=t(e.dataset.i));
+ document.querySelectorAll("[data-ih]").forEach(e=>e.innerHTML=t(e.dataset.ih));
+ document.querySelectorAll("[data-p]").forEach(e=>e.placeholder=t(e.dataset.p));
+ document.querySelectorAll("[data-lg]").forEach(b=>b.classList.toggle("on",b.dataset.lg==lang));
+ const s=$("sort"),sv0=s.value;s.innerHTML=[["pd",t("sPd")],["pa",t("sPa")],["new",t("sNew")],["y",t("sY")]].map(([v,l])=>`<option value="${v}">${l}</option>`).join("");s.value=sv0||"pd";
+ const usedB=[...new Set(D.map(x=>x.b).filter(b=>b!==OTHER))].sort((a,b)=>BR[a].localeCompare(BR[b]));
+ const b=$("brand"),bv=b.value;b.innerHTML=`<option value="">${t("all")}</option>`+usedB.map(i=>`<option value="${i}">${esc(BR[i])}</option>`).join("");b.value=bv;
+ const usedL=[...new Set(D.map(locKey).filter(Boolean))];
+ $("regWrap").hidden=usedL.length<2;
+ const r=$("reg"),rv=r.value;r.innerHTML=`<option value="">${t("all")}</option>`+usedL.map(k=>{const x=D.find(i=>locKey(i)==k);return `<option value="${esc(k)}">${esc(n(x.loc))} (${D.filter(i=>locKey(i)==k).length})</option>`}).join("");r.value=rv;
+ const photos=D.reduce((a,x)=>a+x.n,0);
+ $("stats").innerHTML=`<div><b class="num">${D.length}</b><span>${t("stItems")}</span></div><div><b class="num">${photos}</b><span>${t("stPhotos")}</span></div><div><b class="num">${Object.keys(C).length}</b><span>${t("stCats")}</span></div>`;
+ chips();render();
+ if(open!=null)openSheet(open,cur);
+}
+function chips(){
+ const cnt=k=>D.filter(x=>x.c==k).length;
+ $("cats").innerHTML=`<button class="chip ${cat?"":"on"}" data-c="">${t("all")}<small class="num">${D.length}</small></button>`+
+  Object.entries(C).map(([k,v])=>`<button class="chip ${cat==k?"on":""}" data-c="${k}">${n(v[0])}<small class="num">${cnt(k)}</small></button>`).join("");
+ const subs=cat?Object.entries(C[cat][1]).filter(([k])=>D.some(x=>x.c==cat&&x.s==k)):[];
+ $("subs").hidden=subs.length<2;
+ $("subs").innerHTML=subs.map(([k,v])=>`<button class="chip ${sub==k?"on":""}" data-s="${k}">${n(v)}<small class="num">${D.filter(x=>x.c==cat&&x.s==k).length}</small></button>`).join("");
+}
+const num=id=>{const v=$(id).value.replace(/\D/g,"");return v===""?null:+v};
+function list(){
+ const q=$("q").value.trim().toLowerCase(),b=$("brand").value,r=$("reg").value,p1=num("p1"),p2=num("p2"),y1=num("y1"),y2=num("y2");
+ let a=D.filter(x=>(!cat||x.c==cat)&&(!sub||x.s==sub)&&(b===""||x.b==b)&&(r===""||locKey(x)==r)
+  &&(p1==null||x.p>=p1)&&(p2==null||x.p<=p2)&&(y1==null||(x.y&&x.y>=y1))&&(y2==null||(x.y&&x.y<=y2))
+  &&(!q||(x.t.join(" ")+" "+BR[x.b]+" "+(x.loc?x.loc.join(" "):"")).toLowerCase().includes(q)));
+ const so=$("sort").value;
+ a.sort((m,k)=>so=="pa"?m.p-k.p:so=="pd"?k.p-m.p:so=="y"?(k.y||0)-(m.y||0):k.id-m.id);
+ return a;
+}
+function render(){
+ const a=list();
+ $("count").textContent=t("found")+": "+a.length;
+ $("empty").hidden=a.length>0;
+ $("grid").innerHTML=a.map(x=>{
+  const f=[x.y||"",brand(x),x.hp?x.hp+" "+t("hpu"):"",x.h?x.h.toLocaleString(lang=="uk"?"uk-UA":"en-US")+" "+t("hrs"):""].filter(Boolean);
+  return `<button class="card" type="button" data-id="${x.id}">
+  <div class="ph-box"><img class="bg" src="t/${x.id}.jpg" alt="" aria-hidden="true" loading="lazy" decoding="async"><img class="fg" src="t/${x.id}.jpg" alt="${esc(n(x.t))}" loading="lazy" decoding="async"><span class="badge num">${CAM}${x.n}</span></div>
+  <div class="body"><span class="kind">${esc(n(C[x.c][1][x.s]))}</span><h3>${esc(n(x.t))}</h3><span class="price num">${money(x.p)}${x.note?`<span class="pnote">${esc(n(x.note))}</span>`:""}</span>
+  ${f.length?`<span class="facts num">${f.map(esc).join("<span aria-hidden='true'>·</span>")}</span>`:""}
+  <span class="loc">${PIN}${esc(locTxt(x))}</span></div></button>`}).join("");
+}
+let open=null,cur=1;
+function openSheet(id,k){
+ const x=D.find(i=>i.id==id);if(!x)return;open=id;cur=k||1;
+ const row=(a,b)=>b?`<dt>${a}</dt><dd>${esc(b)}</dd>`:"";
+ $("sheetIn").innerHTML=`<button class="close" type="button" onclick="closeSheet()" aria-label="${t("closeL")}">✕</button>
+ <div class="gal"><div class="stage" id="stage"><img id="big" alt="${esc(n(x.t))}">
+  ${x.n>1?`<button class="nav p" type="button" onclick="step(-1)" aria-label="${t("prev")}"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="m15 18-6-6 6-6"/></svg></button><button class="nav n" type="button" onclick="step(1)" aria-label="${t("next")}"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="m9 18 6-6-6-6"/></svg></button>`:""}
+  <span class="counter num" id="ctr"></span></div>
+  <div class="thumbs" id="thumbs">${Array.from({length:x.n},(_,i)=>`<button type="button" data-k="${i+1}" aria-label="${i+1}"><img src="${img(x,i+1)}" loading="lazy" alt=""></button>`).join("")}</div></div>
+ <div class="info">
+  <span class="kind">${esc(n(C[x.c][0]))} · ${esc(n(C[x.c][1][x.s]))}</span>
+  <h2>${esc(n(x.t))}</h2>
+  <div class="price num">${money(x.p)}${x.note?`<span class="pnote">${esc(n(x.note))}</span>`:""}</div>
+  <dl class="spec">${row(t("brand"),brand(x))}${row(t("year"),x.y||"")}${row(t("hp"),x.hp?x.hp+" "+t("hpu"):"")}${row(t("hours"),x.h?x.h.toLocaleString(lang=="uk"?"uk-UA":"en-US")+" "+t("hrs"):"")}${row(t("cabin"),x.cb===0?t("yes"):"")}${row(t("trans"),x.tr===0?t("manual"):"")}${row(t("loc"),locTxt(x))}</dl>
+  <p class="desc">${esc(n(x.ds))}</p>
+  <div class="cta"><b>${t("askTitle")}</b><span class="ph num">${PHONE}</span>
+   <div class="row"><a class="btn y" href="tel:${TEL}">${t("call")}</a><button class="btn o" type="button" onclick="copyPhone()">${t("copy")}</button><a class="btn o" href="https://www.tiktok.com/@agrotema.ua" target="_blank" rel="noopener">TikTok</a></div>
+   <span class="hint">${t("askHint")}</span><span class="hint">${t("mailNote")}: <a href="mailto:${MAILADDR}" style="font-weight:700;color:var(--ink)">${MAILADDR}</a></span></div>
+ </div>`;
+ $("sheet").hidden=false;document.body.style.overflow="hidden";show();loadImgs(id);
+ const st=$("stage");let sx=null;
+ st.addEventListener("touchstart",e=>{sx=e.touches[0].clientX},{passive:true});
+ st.addEventListener("touchend",e=>{if(sx==null)return;const dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>40)step(dx<0?1:-1);sx=null});
+}
+function show(){
+ const x=D.find(i=>i.id==open);$("big").src=img(x,cur);$("ctr").textContent=cur+" / "+x.n;
+ document.querySelectorAll("#thumbs button").forEach(b=>{const on=+b.dataset.k==cur;b.classList.toggle("on",on);if(on)b.scrollIntoView({block:"nearest",inline:"center"})});
+}
+function step(d){const x=D.find(i=>i.id==open);cur=(cur-1+d+x.n)%x.n+1;show()}
+function closeSheet(){if(open==null)return;open=null;$("sheet").hidden=true;document.body.style.overflow=""}
+let tt;function toast(m){const e=$("toast");e.textContent=m;e.hidden=false;clearTimeout(tt);tt=setTimeout(()=>e.hidden=true,2200)}
+function copyPhone(){
+ const done=()=>toast(t("copied")+": "+PHONE);
+ try{navigator.clipboard.writeText(PHONE).then(done,fallback)}catch(e){fallback()}
+ function fallback(){const i=document.createElement("textarea");i.value=PHONE;document.body.appendChild(i);i.select();try{document.execCommand("copy");done()}catch(e){}i.remove()}
+}
+
+$("cats").addEventListener("click",e=>{const b=e.target.closest("[data-c]");if(!b)return;cat=b.dataset.c;sub="";chips();render()});
+$("subs").addEventListener("click",e=>{const b=e.target.closest("[data-s]");if(!b)return;sub=sub==b.dataset.s?"":b.dataset.s;chips();render()});
+$("grid").addEventListener("click",e=>{const b=e.target.closest("[data-id]");if(b)openSheet(+b.dataset.id,1)});
+$("sheetIn").addEventListener("click",e=>{const b=e.target.closest("[data-k]");if(b){cur=+b.dataset.k;show()}});
+$("sheet").addEventListener("click",e=>{if(e.target===$("sheet"))closeSheet()});
+document.addEventListener("keydown",e=>{if(open==null)return;if(e.key=="Escape")closeSheet();if(e.key=="ArrowRight")step(1);if(e.key=="ArrowLeft")step(-1)});
+["q","sort","brand","reg","p1","p2","y1","y2"].forEach(id=>$(id).addEventListener("input",render));
+$("reset").onclick=()=>{["q","brand","reg","p1","p2","y1","y2"].forEach(id=>$(id).value="");cat="";sub="";chips();render()};
+$("ft").onclick=()=>{const m=$("more"),c=m.classList.toggle("closed");$("ft").setAttribute("aria-expanded",!c);$("ft").classList.toggle("on",!c)};
+$("setBtn").onclick=e=>{e.stopPropagation();const p=$("pop");p.hidden=!p.hidden;$("setBtn").setAttribute("aria-expanded",!p.hidden)};
+document.addEventListener("click",e=>{if(!$("pop").hidden&&!e.target.closest(".set"))$("pop").hidden=true});
+document.querySelectorAll("[data-th]").forEach(b=>b.onclick=()=>{theme=b.dataset.th;sv("ag_theme",theme);applyTheme()});
+document.querySelectorAll("[data-lg]").forEach(b=>b.onclick=()=>{lang=b.dataset.lg;sv("ag_lang",lang);applyLang()});
+if(matchMedia("(min-width:901px)").matches)$("more").classList.remove("closed");
+applyTheme();applyLang();
+const h=(location.hash||"").match(/^#ad(\d+)$/);if(h)openSheet(+h[1],1);
+</script>
+
+</body>
+</html>
