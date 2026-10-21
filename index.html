@@ -235,7 +235,7 @@ footer a{font-weight:700;color:var(--ink)}
    <div class="more closed" id="more">
     <label><span class="lbl" data-i="brand"></span><select id="brand" class="in" style="width:100%"></select></label>
     <label id="regWrap"><span class="lbl" data-i="loc"></span><select id="reg" class="in" style="width:100%"></select></label>
-    <label><span class="lbl" data-i="price"></span><span class="pair"><input id="p1" class="in num" inputmode="numeric" data-p="from"><input id="p2" class="in num" inputmode="numeric" data-p="to"></span></label>
+    <label><span class="lbl" data-i="price"></span><select id="pr" class="in" style="width:100%"></select></label>
     <label><span class="lbl" data-i="year"></span><span class="pair"><input id="y1" class="in num" inputmode="numeric" data-p="from"><input id="y2" class="in num" inputmode="numeric" data-p="to"></span></label>
     <div style="display:flex;align-items:end"><button class="linkbtn" type="button" id="reset" data-i="reset"></button></div>
    </div>
@@ -271,7 +271,7 @@ const T={
  callUs:["Телефон для покупців","Phone for buyers"],call:["Зателефонувати","Call"],copy:["Скопіювати номер","Copy number"],copied:["Номер скопійовано","Number copied"],
  theme:["Тема","Theme"],light:["Світла","Light"],dark:["Темна","Dark"],langL:["Мова","Language"],
  search:["Пошук: модель, марка…","Search: model, make…"],filters:["Фільтри","Filters"],reset:["Скинути фільтри","Reset filters"],
- brand:["Марка","Make"],region:["Область","Region"],price:["Ціна, $","Price, $"],year:["Рік випуску","Year"],from:["від","from"],to:["до","to"],all:["Усі","All"],
+ brand:["Марка","Make"],region:["Область","Region"],price:["Ціна","Price"],anyPrice:["Будь-яка ціна","Any price"],year:["Рік випуску","Year"],from:["від","from"],to:["до","to"],all:["Усі","All"],
  nothing:["Нічого не знайдено. Змініть фільтри або зателефонуйте нам.","Nothing found. Change the filters or give us a call."],
  found:["Оголошень","Listings"],sNew:["Спочатку нові","Newest first"],sPa:["Ціна: дешевші","Price: low to high"],sPd:["Ціна: дорожчі","Price: high to low"],sY:["Рік: новіші","Year: newest"],
  stItems:["оголошень","listings"],stPhotos:["фото","photos"],stCats:["категорії","categories"],
@@ -307,6 +307,7 @@ const CAM='<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="c
 const locTxt=x=>x.loc?(n(x.loc)+(x.r!=null?", "+n(RG[x.r])+(lang=="uk"?" обл.":" Oblast"):"")):t("locAsk");
 const locKey=x=>x.loc?x.loc[0]:"";
 
+const PR=[[0,1000],[1000,5000],[5000,15000],[15000,30000],[30000,1e9]];
 let cat="", sub="";
 function applyTheme(){if(theme)document.documentElement.dataset.theme=theme;else delete document.documentElement.dataset.theme;
  const dark=theme?theme=="dark":matchMedia("(prefers-color-scheme: dark)").matches;
@@ -323,6 +324,8 @@ function applyLang(){
  const usedL=[...new Set(D.map(locKey).filter(Boolean))];
  $("regWrap").hidden=usedL.length<2;
  const r=$("reg"),rv=r.value;r.innerHTML=`<option value="">${t("all")}</option>`+usedL.map(k=>{const x=D.find(i=>locKey(i)==k);return `<option value="${esc(k)}">${esc(n(x.loc))} (${D.filter(i=>locKey(i)==k).length})</option>`}).join("");r.value=rv;
+ const pe=$("pr"),pv=pe.value,uk=lang=="uk",fm=v=>"$"+v.toLocaleString(uk?"uk-UA":"en-US");
+ pe.innerHTML=`<option value="">${t("anyPrice")}</option>`+PR.map(([a,z],i)=>{const c=D.filter(x=>x.p>=a&&x.p<z).length;if(!c)return "";const l=a==0?(uk?"до ":"up to ")+fm(z):z>=1e9?(uk?"від ":"from ")+fm(a):fm(a)+" – "+fm(z);return `<option value="${i}">${l} (${c})</option>`}).join("");pe.value=pv;
  const photos=D.reduce((a,x)=>a+x.n,0);
  $("stats").innerHTML=`<div><b class="num">${D.length}</b><span>${t("stItems")}</span></div><div><b class="num">${photos}</b><span>${t("stPhotos")}</span></div><div><b class="num">${Object.keys(C).length}</b><span>${t("stCats")}</span></div>`;
  chips();render();
@@ -338,9 +341,9 @@ function chips(){
 }
 const num=id=>{const v=$(id).value.replace(/\D/g,"");return v===""?null:+v};
 function list(){
- const q=$("q").value.trim().toLowerCase(),b=$("brand").value,r=$("reg").value,p1=num("p1"),p2=num("p2"),y1=num("y1"),y2=num("y2");
+ const q=$("q").value.trim().toLowerCase(),b=$("brand").value,r=$("reg").value,pr=PR[$("pr").value]||null,y1=num("y1"),y2=num("y2");
  let a=D.filter(x=>(!cat||x.c==cat)&&(!sub||x.s==sub)&&(b===""||x.b==b)&&(r===""||locKey(x)==r)
-  &&(p1==null||x.p>=p1)&&(p2==null||x.p<=p2)&&(y1==null||(x.y&&x.y>=y1))&&(y2==null||(x.y&&x.y<=y2))
+  &&(!pr||(x.p>=pr[0]&&x.p<pr[1]))&&(y1==null||(x.y&&x.y>=y1))&&(y2==null||(x.y&&x.y<=y2))
   &&(!q||(x.t.join(" ")+" "+BR[x.b]+" "+(x.loc?x.loc.join(" "):"")).toLowerCase().includes(q)));
  const so=$("sort").value;
  a.sort((m,k)=>so=="pa"?m.p-k.p:so=="pd"?k.p-m.p:so=="y"?(k.y||0)-(m.y||0):k.id-m.id);
@@ -401,8 +404,8 @@ $("grid").addEventListener("click",e=>{const b=e.target.closest("[data-id]");if(
 $("sheetIn").addEventListener("click",e=>{const b=e.target.closest("[data-k]");if(b){cur=+b.dataset.k;show()}});
 $("sheet").addEventListener("click",e=>{if(e.target===$("sheet"))closeSheet()});
 document.addEventListener("keydown",e=>{if(open==null)return;if(e.key=="Escape")closeSheet();if(e.key=="ArrowRight")step(1);if(e.key=="ArrowLeft")step(-1)});
-["q","sort","brand","reg","p1","p2","y1","y2"].forEach(id=>$(id).addEventListener("input",render));
-$("reset").onclick=()=>{["q","brand","reg","p1","p2","y1","y2"].forEach(id=>$(id).value="");cat="";sub="";chips();render()};
+["q","sort","brand","reg","pr","y1","y2"].forEach(id=>$(id).addEventListener("input",render));
+$("reset").onclick=()=>{["q","brand","reg","pr","y1","y2"].forEach(id=>$(id).value="");cat="";sub="";chips();render()};
 $("ft").onclick=()=>{const m=$("more"),c=m.classList.toggle("closed");$("ft").setAttribute("aria-expanded",!c);$("ft").classList.toggle("on",!c)};
 $("setBtn").onclick=e=>{e.stopPropagation();const p=$("pop");p.hidden=!p.hidden;$("setBtn").setAttribute("aria-expanded",!p.hidden)};
 document.addEventListener("click",e=>{if(!$("pop").hidden&&!e.target.closest(".set"))$("pop").hidden=true});

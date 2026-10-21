@@ -742,13 +742,13 @@ window.AGRO_DATA = {
    "b": 2,
    "y": 2011,
    "p": 59000,
-   "hp": 0,
+   "hp": 390,
    "h": 19500,
    "cb": null,
    "tr": null,
    "ds": [
-    "2011 року випуску. Напрацювання 19 500 мтг. Два роки тому капремонт двигуна та коробки. Нова головка блока циліндрів. Нова передня гума. Пройшов сервіс перед продажем. Готовий до роботи.",
-    "2011. 19,500 engine hours. Engine and gearbox overhauled two years ago. New cylinder head. New front tyres. Serviced before sale. Ready to work."
+    "Потужність 390 к.с. 2011 року випуску. Напрацювання 19 500 мтг. Два роки тому капремонт двигуна та коробки. Нова головка блока циліндрів. Нова передня гума. Пройшов сервіс перед продажем. Готовий до роботи.",
+    "390 hp. 2011. 19,500 engine hours. Engine and gearbox overhauled two years ago. New cylinder head. New front tyres. Serviced before sale. Ready to work."
    ],
    "n": 29,
    "note": [
