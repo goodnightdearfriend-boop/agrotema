@@ -13,6 +13,8 @@
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#1f5130">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q3L4LHGRMR"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date());gtag("config","G-Q3L4LHGRMR");</script>
 <style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}</style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -308,6 +310,9 @@ const locTxt=x=>x.loc?(n(x.loc)+(x.r!=null?", "+n(RG[x.r])+(lang=="uk"?" обл.
 const locKey=x=>x.loc?x.loc[0]:"";
 
 const PR=[[0,1000],[1000,5000],[5000,15000],[15000,30000],[30000,1e9]];
+const track=(ev,p)=>{try{window.gtag&&gtag("event",ev,p||{})}catch(e){}};
+document.addEventListener("click",e=>{const l=e.target.closest("a[href]");if(!l)return;const h=l.getAttribute("href"),ad=open!=null?(D.find(i=>i.id==open)||{}).t:null,p={place:l.closest(".sheet")?"listing":l.closest(".bar")?"header":l.classList.contains("fab")?"floating":l.closest("footer")?"footer":"hero"};if(ad)p.listing=ad[0];
+ if(h.startsWith("tel:"))track("call_click",p);else if(h.startsWith("mailto:"))track("email_click",p);else if(h.includes("tiktok.com"))track("tiktok_click",p)},true);
 let cat="", sub="";
 function applyTheme(){if(theme)document.documentElement.dataset.theme=theme;else delete document.documentElement.dataset.theme;
  const dark=theme?theme=="dark":matchMedia("(prefers-color-scheme: dark)").matches;
@@ -380,7 +385,7 @@ function openSheet(id,k){
    <div class="row"><a class="btn y" href="tel:${TEL}">${t("call")}</a><button class="btn o" type="button" onclick="copyPhone()">${t("copy")}</button><a class="btn o" href="https://www.tiktok.com/@agrotema.ua" target="_blank" rel="noopener">TikTok</a></div>
    <span class="hint">${t("askHint")}</span><span class="hint">${t("mailNote")}: <a href="mailto:${MAILADDR}" style="font-weight:700;color:var(--ink)">${MAILADDR}</a></span></div>
  </div>`;
- $("sheet").hidden=false;document.body.style.overflow="hidden";show();loadImgs(id);
+ $("sheet").hidden=false;document.body.style.overflow="hidden";show();loadImgs(id);track("view_listing",{listing:x.t[0],price_usd:x.p});
  const st=$("stage");let sx=null;
  st.addEventListener("touchstart",e=>{sx=e.touches[0].clientX},{passive:true});
  st.addEventListener("touchend",e=>{if(sx==null)return;const dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>40)step(dx<0?1:-1);sx=null});
@@ -394,6 +399,7 @@ function closeSheet(){if(open==null)return;open=null;$("sheet").hidden=true;docu
 let tt;function toast(m){const e=$("toast");e.textContent=m;e.hidden=false;clearTimeout(tt);tt=setTimeout(()=>e.hidden=true,2200)}
 function copyPhone(){
  const done=()=>toast(t("copied")+": "+PHONE);
+ track("copy_phone");
  try{navigator.clipboard.writeText(PHONE).then(done,fallback)}catch(e){fallback()}
  function fallback(){const i=document.createElement("textarea");i.value=PHONE;document.body.appendChild(i);i.select();try{document.execCommand("copy");done()}catch(e){}i.remove()}
 }
