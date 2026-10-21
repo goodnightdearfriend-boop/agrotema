@@ -80,10 +80,6 @@ button{font:inherit;color:inherit;cursor:pointer}
 .pnote{font-family:var(--body);font-size:13px;font-weight:700;color:var(--muted);margin-left:6px}
 .ghost{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.4);border-radius:999px;padding:8px 14px;text-decoration:none;font-weight:700;background:transparent;color:inherit;font-size:14px}
 .ghost:hover{background:rgba(255,255,255,.1)}
-.stats{display:flex;gap:22px;margin-top:18px;flex-wrap:wrap}
-.stats div{display:grid}
-.stats b{font-family:var(--display);font-size:22px;color:var(--harvest)}
-.stats span{font-size:12px;color:rgba(255,255,255,.7);letter-spacing:.06em;text-transform:uppercase}
 
 /* tools */
 .tools{margin-top:-30px;position:relative;z-index:2}
@@ -209,7 +205,6 @@ footer a{font-weight:700;color:var(--ink)}
   <div>
    <h1 data-ih="hero"></h1>
    <p data-i="sub"></p>
-   <div class="stats" id="stats"></div>
   </div>
   <div class="contact">
    <div class="lbl" style="color:rgba(255,255,255,.7)" data-i="callUs"></div>
@@ -268,7 +263,7 @@ const D=DATA.D, BR=DATA.BR, OTHER=17;
 const PHONE="+380 99 466 71 28", TEL="+380994667128", MAILADDR="agrotema.ua@ukr.net";
 const T={
  hero:["Сільгосптехніка <em>в&nbsp;наявності</em>","Farm machinery <em>in&nbsp;stock</em>"],
- sub:["Трактори, жатки, сівалки, плуги, вантажівки та причепи. Техніка в Лебедині та с. Токарі, Сумська область. Ціни в доларах. Дзвоніть, щоб дізнатися деталі й домовитися про огляд.","Tractors, headers, seed drills, ploughs, trucks and trailers. Located in Lebedyn and Tokari, Sumy Oblast. Prices in US dollars. Call us for details and to arrange a viewing."],
+ sub:["Трактори, жатки, сівалки, плуги, вантажівки та причепи. Техніка на будь-який смак і бюджет! Дзвоніть, щоб дізнатися деталі й домовитися про огляд.","Tractors, headers, seed drills, ploughs, trucks and trailers. Machinery for every need and budget. Call us for details and to arrange a viewing."],
  callUs:["Телефон для покупців","Phone for buyers"],call:["Зателефонувати","Call"],copy:["Скопіювати номер","Copy number"],copied:["Номер скопійовано","Number copied"],
  theme:["Тема","Theme"],light:["Світла","Light"],dark:["Темна","Dark"],langL:["Мова","Language"],
  search:["Пошук: модель, марка…","Search: model, make…"],filters:["Фільтри","Filters"],reset:["Скинути фільтри","Reset filters"],
@@ -308,6 +303,7 @@ const CAM='<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="c
 const locTxt=x=>x.loc?(n(x.loc)+(x.r!=null?", "+n(RG[x.r])+(lang=="uk"?" обл.":" Oblast"):"")):t("locAsk");
 const locKey=x=>x.loc?x.loc[0]:"";
 
+D.forEach(x=>x._r=Math.random());
 const PR=[[0,1000],[1000,5000],[5000,15000],[15000,30000],[30000,1e9]];
 const track=(ev,p)=>{try{window.gtag&&gtag("event",ev,p||{})}catch(e){}};
 document.addEventListener("click",e=>{const l=e.target.closest("a[href]");if(!l)return;const h=l.getAttribute("href"),ad=open!=null?(D.find(i=>i.id==open)||{}).t:null,p={place:l.closest(".sheet")?"listing":l.closest(".bar")?"header":l.classList.contains("fab")?"floating":l.closest("footer")?"footer":"hero"};if(ad)p.listing=ad[0];
@@ -329,8 +325,6 @@ function applyLang(){
  const r=$("reg"),rv=r.value;r.innerHTML=`<option value="">${t("all")}</option>`+usedL.map(k=>{const x=D.find(i=>locKey(i)==k);return `<option value="${esc(k)}">${esc(n(x.loc))} (${D.filter(i=>locKey(i)==k).length})</option>`}).join("");r.value=rv;
  const pe=$("pr"),pv=pe.value,uk=lang=="uk",fm=v=>"$"+v.toLocaleString(uk?"uk-UA":"en-US");
  pe.innerHTML=`<option value="">${t("anyPrice")}</option>`+PR.map(([a,z],i)=>{const c=D.filter(x=>x.p>=a&&x.p<z).length;if(!c)return "";const l=a==0?(uk?"до ":"up to ")+fm(z):z>=1e9?(uk?"від ":"from ")+fm(a):fm(a)+" – "+fm(z);return `<option value="${i}">${l} (${c})</option>`}).join("");pe.value=pv;
- const photos=D.reduce((a,x)=>a+x.n,0);
- $("stats").innerHTML=`<div><b class="num">${D.length}</b><span>${t("stItems")}</span></div><div><b class="num">${photos}</b><span>${t("stPhotos")}</span></div><div><b class="num">${Object.keys(C).length}</b><span>${t("stCats")}</span></div>`;
  chips();render();
  if(open!=null)openSheet(open,cur);
 }
@@ -348,8 +342,8 @@ function list(){
  let a=D.filter(x=>(!cat||x.c==cat)&&(!sub||x.s==sub)&&(b===""||x.b==b)&&(r===""||locKey(x)==r)
   &&(!pr||(x.p>=pr[0]&&x.p<pr[1]))&&(y1==null||(x.y&&x.y>=y1))&&(y2==null||(x.y&&x.y<=y2))
   &&(!q||(x.t.join(" ")+" "+BR[x.b]+" "+(x.loc?x.loc.join(" "):"")).toLowerCase().includes(q)));
- const so="pd";
- a.sort((m,k)=>so=="pa"?m.p-k.p:so=="pd"?k.p-m.p:so=="y"?(k.y||0)-(m.y||0):k.id-m.id);
+ const so="rnd";
+ a.sort((m,k)=>so=="rnd"?m._r-k._r:so=="pa"?m.p-k.p:so=="pd"?k.p-m.p:so=="y"?(k.y||0)-(m.y||0):k.id-m.id);
  return a;
 }
 function render(){
