@@ -229,7 +229,6 @@ footer a{font-weight:700;color:var(--ink)}
   <div class="panel">
    <div class="toprow">
     <div class="search"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input id="q" class="in" type="search" autocomplete="off" data-p="search"></div>
-    <select id="sort" class="in" aria-label="Sort"></select>
     <button class="chip filt-toggle" id="ft" type="button" aria-expanded="false"><span data-i="filters"></span></button>
    </div>
    <div class="chips" id="cats"></div>
@@ -323,7 +322,6 @@ function applyLang(){
  document.querySelectorAll("[data-ih]").forEach(e=>e.innerHTML=t(e.dataset.ih));
  document.querySelectorAll("[data-p]").forEach(e=>e.placeholder=t(e.dataset.p));
  document.querySelectorAll("[data-lg]").forEach(b=>b.classList.toggle("on",b.dataset.lg==lang));
- const s=$("sort"),sv0=s.value;s.innerHTML=[["pd",t("sPd")],["pa",t("sPa")],["new",t("sNew")],["y",t("sY")]].map(([v,l])=>`<option value="${v}">${l}</option>`).join("");s.value=sv0||"pd";
  const usedB=[...new Set(D.map(x=>x.b).filter(b=>b!==OTHER))].sort((a,b)=>BR[a].localeCompare(BR[b]));
  const b=$("brand"),bv=b.value;b.innerHTML=`<option value="">${t("all")}</option>`+usedB.map(i=>`<option value="${i}">${esc(BR[i])}</option>`).join("");b.value=bv;
  const usedL=[...new Set(D.map(locKey).filter(Boolean))];
@@ -350,7 +348,7 @@ function list(){
  let a=D.filter(x=>(!cat||x.c==cat)&&(!sub||x.s==sub)&&(b===""||x.b==b)&&(r===""||locKey(x)==r)
   &&(!pr||(x.p>=pr[0]&&x.p<pr[1]))&&(y1==null||(x.y&&x.y>=y1))&&(y2==null||(x.y&&x.y<=y2))
   &&(!q||(x.t.join(" ")+" "+BR[x.b]+" "+(x.loc?x.loc.join(" "):"")).toLowerCase().includes(q)));
- const so=$("sort").value;
+ const so="pd";
  a.sort((m,k)=>so=="pa"?m.p-k.p:so=="pd"?k.p-m.p:so=="y"?(k.y||0)-(m.y||0):k.id-m.id);
  return a;
 }
@@ -410,7 +408,7 @@ $("grid").addEventListener("click",e=>{const b=e.target.closest("[data-id]");if(
 $("sheetIn").addEventListener("click",e=>{const b=e.target.closest("[data-k]");if(b){cur=+b.dataset.k;show()}});
 $("sheet").addEventListener("click",e=>{if(e.target===$("sheet"))closeSheet()});
 document.addEventListener("keydown",e=>{if(open==null)return;if(e.key=="Escape")closeSheet();if(e.key=="ArrowRight")step(1);if(e.key=="ArrowLeft")step(-1)});
-["q","sort","brand","reg","pr","y1","y2"].forEach(id=>$(id).addEventListener("input",render));
+["q","brand","reg","pr","y1","y2"].forEach(id=>$(id).addEventListener("input",render));
 $("reset").onclick=()=>{["q","brand","reg","pr","y1","y2"].forEach(id=>$(id).value="");cat="";sub="";chips();render()};
 $("ft").onclick=()=>{const m=$("more"),c=m.classList.toggle("closed");$("ft").setAttribute("aria-expanded",!c);$("ft").classList.toggle("on",!c)};
 $("setBtn").onclick=e=>{e.stopPropagation();const p=$("pop");p.hidden=!p.hidden;$("setBtn").setAttribute("aria-expanded",!p.hidden)};
