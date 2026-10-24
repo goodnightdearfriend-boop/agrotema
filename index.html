@@ -280,10 +280,11 @@ const T={
  foot:["продаж сільгосптехніки по Україні","farm machinery sales across Ukraine"]
 };
 const C={
- tractors:[["Трактори","Tractors"],{wheel:["Колісні трактори","Wheeled tractors"]}],
- harvesters:[["Жатки","Headers"],{header:["Жатки","Headers"]}],
+ tractors:[["Трактори","Tractors"],{wheel:["Колісні трактори","Wheeled tractors"],crawler:["Гусеничні трактори","Track tractors"]}],
+ harvesters:[["Комбайни та жатки","Combines & headers"],{combine:["Зернозбиральні комбайни","Combine harvesters"],header:["Жатки","Headers"]}],
  transport:[["Вантажівки та причепи","Trucks & trailers"],{truck:["Вантажівки","Trucks"],trailer:["Причепи","Trailers"],cart:["Візки для жаток","Header carts"]}],
- implements:[["Навісне та причіпне","Implements"],{seeder:["Сівалки","Seed drills"],plow:["Плуги","Ploughs"],harrow:["Борони","Harrows"],roller:["Котки","Rollers"],ripper:["Глибокорозпушувачі","Rippers"],sprayer:["Обприскувачі","Sprayers"]}]
+ other:[["Інша техніка","Other equipment"],{loader:["Міні-навантажувачі","Skid steer loaders"],seedload:["Завантажувачі сівалок","Seed loaders"],welder:["Зварювальні агрегати","Welding units"]}],
+ implements:[["Навісне та причіпне","Implements"],{seeder:["Сівалки","Seed drills"],plow:["Плуги","Ploughs"],harrow:["Борони","Harrows"],roller:["Котки","Rollers"],cult:["Культиватори","Cultivators"],ripper:["Глибокорозпушувачі","Rippers"],sprayer:["Обприскувачі","Sprayers"]}]
 };
 const RG=[["Вінницька","Vinnytsia"],["Волинська","Volyn"],["Дніпропетровська","Dnipropetrovsk"],["Донецька","Donetsk"],["Житомирська","Zhytomyr"],["Закарпатська","Zakarpattia"],["Запорізька","Zaporizhzhia"],["Івано-Франківська","Ivano-Frankivsk"],["Київська","Kyiv"],["Кіровоградська","Kirovohrad"],["Луганська","Luhansk"],["Львівська","Lviv"],["Миколаївська","Mykolaiv"],["Одеська","Odesa"],["Полтавська","Poltava"],["Рівненська","Rivne"],["Сумська","Sumy"],["Тернопільська","Ternopil"],["Харківська","Kharkiv"],["Херсонська","Kherson"],["Хмельницька","Khmelnytskyi"],["Черкаська","Cherkasy"],["Чернівецька","Chernivtsi"],["Чернігівська","Chernihiv"]];
 
@@ -293,7 +294,9 @@ const sv=(k,v)=>{try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}};
 let lang=ld("ag_lang","uk"), theme=ld("ag_theme",null);
 const L=()=>lang=="uk"?0:1, t=k=>T[k][L()], n=a=>a[L()];
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
-const money=p=>"$ "+Number(p).toLocaleString(lang=="uk"?"uk-UA":"en-US");
+const CUR={USD:["$",1],EUR:["€",1.12],UAH:["₴",1/44.8]};
+const money=(p,c)=>{const n=Number(p).toLocaleString(lang=="uk"?"uk-UA":"en-US");return c=="UAH"?n+"\u202F₴":(CUR[c]||CUR.USD)[0]+"\u202F"+n};
+const usd=x=>x.p*(CUR[x.cu]||CUR.USD)[1];
 const IM={},LOADING={};
 const img=(x,k)=>`i/${x.id}-${String(k).padStart(2,"0")}.jpg`;
 function loadImgs(id){}
@@ -324,7 +327,7 @@ function applyLang(){
  $("regWrap").hidden=usedL.length<2;
  const r=$("reg"),rv=r.value;r.innerHTML=`<option value="">${t("all")}</option>`+usedL.map(k=>{const x=D.find(i=>locKey(i)==k);return `<option value="${esc(k)}">${esc(n(x.loc))} (${D.filter(i=>locKey(i)==k).length})</option>`}).join("");r.value=rv;
  const pe=$("pr"),pv=pe.value,uk=lang=="uk",fm=v=>"$"+v.toLocaleString(uk?"uk-UA":"en-US");
- pe.innerHTML=`<option value="">${t("anyPrice")}</option>`+PR.map(([a,z],i)=>{const c=D.filter(x=>x.p>=a&&x.p<z).length;if(!c)return "";const l=a==0?(uk?"до ":"up to ")+fm(z):z>=1e9?(uk?"від ":"from ")+fm(a):fm(a)+" – "+fm(z);return `<option value="${i}">${l} (${c})</option>`}).join("");pe.value=pv;
+ pe.innerHTML=`<option value="">${t("anyPrice")}</option>`+PR.map(([a,z],i)=>{const c=D.filter(x=>usd(x)>=a&&usd(x)<z).length;if(!c)return "";const l=a==0?(uk?"до ":"up to ")+fm(z):z>=1e9?(uk?"від ":"from ")+fm(a):fm(a)+" – "+fm(z);return `<option value="${i}">${l} (${c})</option>`}).join("");pe.value=pv;
  chips();render();
  if(open!=null)openSheet(open,cur);
 }
@@ -340,10 +343,10 @@ const num=id=>{const v=$(id).value.replace(/\D/g,"");return v===""?null:+v};
 function list(){
  const q=$("q").value.trim().toLowerCase(),b=$("brand").value,r=$("reg").value,pr=PR[$("pr").value]||null,y1=num("y1"),y2=num("y2");
  let a=D.filter(x=>(!cat||x.c==cat)&&(!sub||x.s==sub)&&(b===""||x.b==b)&&(r===""||locKey(x)==r)
-  &&(!pr||(x.p>=pr[0]&&x.p<pr[1]))&&(y1==null||(x.y&&x.y>=y1))&&(y2==null||(x.y&&x.y<=y2))
+  &&(!pr||(usd(x)>=pr[0]&&usd(x)<pr[1]))&&(y1==null||(x.y&&x.y>=y1))&&(y2==null||(x.y&&x.y<=y2))
   &&(!q||(x.t.join(" ")+" "+BR[x.b]+" "+(x.loc?x.loc.join(" "):"")).toLowerCase().includes(q)));
  const so="rnd";
- a.sort((m,k)=>so=="rnd"?m._r-k._r:so=="pa"?m.p-k.p:so=="pd"?k.p-m.p:so=="y"?(k.y||0)-(m.y||0):k.id-m.id);
+ a.sort((m,k)=>so=="rnd"?m._r-k._r:so=="pa"?usd(m)-usd(k):so=="pd"?usd(k)-usd(m):so=="y"?(k.y||0)-(m.y||0):k.id-m.id);
  return a;
 }
 function render(){
@@ -354,7 +357,7 @@ function render(){
   const f=[x.y||"",brand(x),x.hp?x.hp+" "+t("hpu"):"",x.h?x.h.toLocaleString(lang=="uk"?"uk-UA":"en-US")+" "+t("hrs"):""].filter(Boolean);
   return `<button class="card" type="button" data-id="${x.id}">
   <div class="ph-box"><img class="bg" src="t/${x.id}.jpg" alt="" aria-hidden="true" loading="lazy" decoding="async"><img class="fg" src="t/${x.id}.jpg" alt="${esc(n(x.t))}" loading="lazy" decoding="async"><span class="badge num">${CAM}${x.n}</span></div>
-  <div class="body"><span class="kind">${esc(n(C[x.c][1][x.s]))}</span><h3>${esc(n(x.t))}</h3><span class="price num">${money(x.p)}${x.note?`<span class="pnote">${esc(n(x.note))}</span>`:""}</span>
+  <div class="body"><span class="kind">${esc(n(C[x.c][1][x.s]))}</span><h3>${esc(n(x.t))}</h3><span class="price num">${money(x.p,x.cu)}${x.note?`<span class="pnote">${esc(n(x.note))}</span>`:""}</span>
   ${f.length?`<span class="facts num">${f.map(esc).join("<span aria-hidden='true'>·</span>")}</span>`:""}
   <span class="loc">${PIN}${esc(locTxt(x))}</span></div></button>`}).join("");
 }
@@ -370,7 +373,7 @@ function openSheet(id,k){
  <div class="info">
   <span class="kind">${esc(n(C[x.c][0]))} · ${esc(n(C[x.c][1][x.s]))}</span>
   <h2>${esc(n(x.t))}</h2>
-  <div class="price num">${money(x.p)}${x.note?`<span class="pnote">${esc(n(x.note))}</span>`:""}</div>
+  <div class="price num">${money(x.p,x.cu)}${x.note?`<span class="pnote">${esc(n(x.note))}</span>`:""}</div>
   <dl class="spec">${row(t("brand"),brand(x))}${row(t("year"),x.y||"")}${row(t("hp"),x.hp?x.hp+" "+t("hpu"):"")}${row(t("hours"),x.h?x.h.toLocaleString(lang=="uk"?"uk-UA":"en-US")+" "+t("hrs"):"")}${row(t("cabin"),x.cb===0?t("yes"):"")}${row(t("trans"),x.tr===0?t("manual"):"")}${row(t("loc"),locTxt(x))}</dl>
   <p class="desc">${esc(n(x.ds))}</p>
   <div class="cta"><b>${t("askTitle")}</b><span class="ph num">${PHONE}</span>

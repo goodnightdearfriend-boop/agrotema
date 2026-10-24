@@ -27,7 +27,8 @@ window.AGRO_DATA = {
     "Lebedyn"
    ],
    "r": 16,
-   "note": null
+   "note": null,
+   "cu": "USD"
   },
   {
    "id": 2,
@@ -54,7 +55,8 @@ window.AGRO_DATA = {
     "Lebedyn"
    ],
    "r": 16,
-   "note": null
+   "note": null,
+   "cu": "USD"
   },
   {
    "id": 3,
@@ -81,7 +83,8 @@ window.AGRO_DATA = {
     "Lebedyn"
    ],
    "r": 16,
-   "note": null
+   "note": null,
+   "cu": "USD"
   },
   {
    "id": 4,
@@ -108,7 +111,8 @@ window.AGRO_DATA = {
     "Lebedyn"
    ],
    "r": 16,
-   "note": null
+   "note": null,
+   "cu": "USD"
   },
   {
    "id": 5,
@@ -135,7 +139,8 @@ window.AGRO_DATA = {
     "Lebedyn"
    ],
    "r": 16,
-   "note": null
+   "note": null,
+   "cu": "USD"
   },
   {
    "id": 6,
@@ -162,7 +167,8 @@ window.AGRO_DATA = {
     "Tokari village"
    ],
    "r": 16,
-   "note": null
+   "note": null,
+   "cu": "USD"
   },
   {
    "id": 7,
@@ -189,7 +195,8 @@ window.AGRO_DATA = {
     "Lebedyn"
    ],
    "r": 16,
-   "note": null
+   "note": null,
+   "cu": "USD"
   },
   {
    "id": 8,
@@ -216,7 +223,8 @@ window.AGRO_DATA = {
     "Tokari village"
    ],
    "r": 16,
-   "note": null
+   "note": null,
+   "cu": "USD"
   },
   {
    "id": 9,
@@ -243,7 +251,8 @@ window.AGRO_DATA = {
     "Lebedyn"
    ],
    "r": 16,
-   "note": null
+   "note": null,
+   "cu": "USD"
   },
   {
    "id": 10,
@@ -270,7 +279,8 @@ window.AGRO_DATA = {
     "Lebedyn"
    ],
    "r": 16,
-   "note": null
+   "note": null,
+   "cu": "USD"
   },
   {
    "id": 11,
@@ -297,7 +307,8 @@ window.AGRO_DATA = {
     "Lebedyn"
    ],
    "r": 16,
-   "note": null
+   "note": null,
+   "cu": "USD"
   },
   {
    "id": 12,
@@ -324,7 +335,8 @@ window.AGRO_DATA = {
     "Lebedyn"
    ],
    "r": 16,
-   "note": null
+   "note": null,
+   "cu": "USD"
   },
   {
    "id": 13,
@@ -351,7 +363,8 @@ window.AGRO_DATA = {
     "Lebedyn"
    ],
    "r": 16,
-   "note": null
+   "note": null,
+   "cu": "USD"
   },
   {
    "id": 14,
@@ -378,7 +391,8 @@ window.AGRO_DATA = {
     "Lebedyn"
    ],
    "r": 16,
-   "note": null
+   "note": null,
+   "cu": "USD"
   },
   {
    "id": 15,
@@ -405,7 +419,8 @@ window.AGRO_DATA = {
     "Lebedyn"
    ],
    "r": 16,
-   "note": null
+   "note": null,
+   "cu": "USD"
   },
   {
    "id": 16,
@@ -432,7 +447,8 @@ window.AGRO_DATA = {
     "Lebedyn"
    ],
    "r": 16,
-   "note": null
+   "note": null,
+   "cu": "USD"
   },
   {
    "id": 17,
@@ -459,7 +475,8 @@ window.AGRO_DATA = {
     "Lebedyn"
    ],
    "r": 16,
-   "note": null
+   "note": null,
+   "cu": "USD"
   },
   {
    "id": 18,
@@ -486,7 +503,8 @@ window.AGRO_DATA = {
     "Lebedyn"
    ],
    "r": 16,
-   "note": null
+   "note": null,
+   "cu": "USD"
   },
   {
    "id": 19,
@@ -513,7 +531,8 @@ window.AGRO_DATA = {
     "Lebedyn"
    ],
    "r": 16,
-   "note": null
+   "note": null,
+   "cu": "USD"
   },
   {
    "id": 20,
@@ -540,7 +559,8 @@ window.AGRO_DATA = {
     "Lebedyn"
    ],
    "r": 16,
-   "note": null
+   "note": null,
+   "cu": "USD"
   },
   {
    "id": 21,
@@ -567,7 +587,8 @@ window.AGRO_DATA = {
     "Lebedyn"
    ],
    "r": 16,
-   "note": null
+   "note": null,
+   "cu": "USD"
   },
   {
    "id": 22,
@@ -594,7 +615,8 @@ window.AGRO_DATA = {
     "м. Лебедин",
     "Lebedyn"
    ],
-   "r": 16
+   "r": 16,
+   "cu": "USD"
   },
   {
    "id": 23,
@@ -621,7 +643,8 @@ window.AGRO_DATA = {
     "м. Лебедин",
     "Lebedyn"
    ],
-   "r": 16
+   "r": 16,
+   "cu": "USD"
   },
   {
    "id": 24,
@@ -648,7 +671,8 @@ window.AGRO_DATA = {
     "м. Лебедин",
     "Lebedyn"
    ],
-   "r": 16
+   "r": 16,
+   "cu": "USD"
   },
   {
    "id": 25,
@@ -675,7 +699,8 @@ window.AGRO_DATA = {
     "м. Лебедин",
     "Lebedyn"
    ],
-   "r": 16
+   "r": 16,
+   "cu": "USD"
   },
   {
    "id": 26,
@@ -702,7 +727,8 @@ window.AGRO_DATA = {
     "м. Лебедин",
     "Lebedyn"
    ],
-   "r": 16
+   "r": 16,
+   "cu": "USD"
   },
   {
    "id": 27,
@@ -729,7 +755,8 @@ window.AGRO_DATA = {
     "м. Лебедин",
     "Lebedyn"
    ],
-   "r": 16
+   "r": 16,
+   "cu": "USD"
   },
   {
    "id": 28,
@@ -759,7 +786,8 @@ window.AGRO_DATA = {
     "м. Лебедин",
     "Lebedyn"
    ],
-   "r": 16
+   "r": 16,
+   "cu": "USD"
   },
   {
    "id": 29,
@@ -786,7 +814,8 @@ window.AGRO_DATA = {
     "м. Лебедин",
     "Lebedyn"
    ],
-   "r": 16
+   "r": 16,
+   "cu": "USD"
   },
   {
    "id": 30,
@@ -813,7 +842,8 @@ window.AGRO_DATA = {
     "м. Лебедин",
     "Lebedyn"
    ],
-   "r": 16
+   "r": 16,
+   "cu": "USD"
   },
   {
    "id": 31,
@@ -840,7 +870,8 @@ window.AGRO_DATA = {
     "м. Лебедин",
     "Lebedyn"
    ],
-   "r": 16
+   "r": 16,
+   "cu": "USD"
   },
   {
    "id": 32,
@@ -866,6 +897,287 @@ window.AGRO_DATA = {
    "loc": [
     "м. Лебедин",
     "Lebedyn"
+   ],
+   "r": 16,
+   "cu": "USD"
+  },
+  {
+   "id": 33,
+   "t": [
+    "Міні-навантажувач ZTS",
+    "ZTS skid steer loader"
+   ],
+   "c": "other",
+   "s": "loader",
+   "b": 24,
+   "y": 0,
+   "p": 3000,
+   "cu": "USD",
+   "hp": 0,
+   "h": 0,
+   "cb": null,
+   "tr": null,
+   "ds": [
+    "Двигун заводиться, зроблено ТНВД. Не працює гідравліка.",
+    "Engine starts, injection pump serviced. Hydraulics not working."
+   ],
+   "n": 10,
+   "note": null,
+   "loc": [
+    "м. Лебедин",
+    "Lebedyn"
+   ],
+   "r": 16
+  },
+  {
+   "id": 34,
+   "t": [
+    "Плуг оборотний ПО-5 Патона",
+    "PO-5 Patona reversible plough"
+   ],
+   "c": "implements",
+   "s": "plow",
+   "b": 17,
+   "y": 0,
+   "p": 2900,
+   "cu": "USD",
+   "hp": 0,
+   "h": 0,
+   "cb": null,
+   "tr": null,
+   "ds": [
+    "5 корпусів. Висока стійка. Робочі органи в чудовому стані.",
+    "5 bodies. High-clearance beams. Working parts in excellent condition."
+   ],
+   "n": 12,
+   "note": null,
+   "loc": [
+    "с. Патріотівка",
+    "Patriotivka village"
+   ],
+   "r": 16
+  },
+  {
+   "id": 35,
+   "t": [
+    "Комбайн зернозбиральний Case IH 7130",
+    "Case IH 7130 combine harvester"
+   ],
+   "c": "harvesters",
+   "s": "combine",
+   "b": 3,
+   "y": 2014,
+   "p": 110000,
+   "cu": "EUR",
+   "hp": 0,
+   "h": 7500,
+   "cb": null,
+   "tr": null,
+   "ds": [
+    "Роторний. 2014 рік. Напрацювання 7500 мтг двигуна / 4900 мтг молотарки. Зараз збирає соняшник, є можливість тестування. Без жатки.",
+    "Rotary. 2014. 7,500 engine hours / 4,900 threshing hours. Currently harvesting sunflower, test drive possible. Sold without header."
+   ],
+   "n": 16,
+   "note": null,
+   "loc": [
+    "с. Патріотівка",
+    "Patriotivka village"
+   ],
+   "r": 16
+  },
+  {
+   "id": 36,
+   "t": [
+    "Трактор John Deere 7280R",
+    "John Deere 7280R tractor"
+   ],
+   "c": "tractors",
+   "s": "wheel",
+   "b": 0,
+   "y": 2012,
+   "p": 95000,
+   "cu": "EUR",
+   "hp": 0,
+   "h": 7200,
+   "cb": null,
+   "tr": null,
+   "ds": [
+    "2012 року випуску. Напрацювання 7200 мтг. Задня спарка коліс. Підресорений передній міст. Передня навіска з грузами. Замінені нові форсунки! Відмінний стан.",
+    "2012. 7,200 engine hours. Dual rear wheels. Suspended front axle. Front linkage with weights. New injectors fitted. Excellent condition."
+   ],
+   "n": 16,
+   "note": null,
+   "loc": [
+    "с. Патріотівка",
+    "Patriotivka village"
+   ],
+   "r": 16
+  },
+  {
+   "id": 37,
+   "t": [
+    "Комбайн New Holland CSX 7080 з жаткою",
+    "New Holland CSX 7080 combine with header"
+   ],
+   "c": "harvesters",
+   "s": "combine",
+   "b": 2,
+   "y": 2008,
+   "p": 48000,
+   "cu": "USD",
+   "hp": 0,
+   "h": 0,
+   "cb": null,
+   "tr": null,
+   "ds": [
+    "Клавішний. 2008 року. Гарний стан, зараз збирає соняшник. В комплекті з жаткою зерновою New Holland 2009 року випуску та візком.",
+    "Straw walker. 2008. Good condition, currently harvesting sunflower. Comes with a 2009 New Holland grain header and cart."
+   ],
+   "n": 41,
+   "note": null,
+   "loc": [
+    "с. Патріотівка",
+    "Patriotivka village"
+   ],
+   "r": 16
+  },
+  {
+   "id": 38,
+   "t": [
+    "Сівалка зернова Kverneland Accord",
+    "Kverneland Accord grain drill"
+   ],
+   "c": "implements",
+   "s": "seeder",
+   "b": 23,
+   "y": 0,
+   "p": 100000,
+   "cu": "UAH",
+   "hp": 0,
+   "h": 0,
+   "cb": null,
+   "tr": null,
+   "ds": [
+    "Ширина захвату 6 метрів. Вакуумна. Навісна. Міжряддя 12,5 см. Транспортний пристрій. Потребує передсезонної підготовки.",
+    "6 m working width. Pneumatic. Mounted. 12.5 cm row spacing. Transport device. Needs pre-season preparation."
+   ],
+   "n": 16,
+   "note": null,
+   "loc": [
+    "с. Патріотівка",
+    "Patriotivka village"
+   ],
+   "r": 16
+  },
+  {
+   "id": 39,
+   "t": [
+    "САК агрегат зварювальний",
+    "SAK PTO welding unit"
+   ],
+   "c": "other",
+   "s": "welder",
+   "b": 17,
+   "y": 0,
+   "p": 500,
+   "cu": "USD",
+   "hp": 0,
+   "h": 0,
+   "cb": null,
+   "tr": null,
+   "ds": [
+    "Під трактор, від ВОМ, навісний. Робочий стан не перевірявся.",
+    "Tractor-mounted, PTO-driven. Working condition not checked."
+   ],
+   "n": 10,
+   "note": null,
+   "loc": [
+    "с. Патріотівка",
+    "Patriotivka village"
+   ],
+   "r": 16
+  },
+  {
+   "id": 40,
+   "t": [
+    "Завантажувач сівалок ЗС-30",
+    "ZS-30 seed drill loader"
+   ],
+   "c": "other",
+   "s": "seedload",
+   "b": 17,
+   "y": 2018,
+   "p": 20000,
+   "cu": "UAH",
+   "hp": 0,
+   "h": 0,
+   "cb": null,
+   "tr": null,
+   "ds": [
+    "Під ГАЗон. 2018 рік випуску. Робочий стан.",
+    "For GAZon truck. 2018. Working condition."
+   ],
+   "n": 10,
+   "note": null,
+   "loc": [
+    "с. Патріотівка",
+    "Patriotivka village"
+   ],
+   "r": 16
+  },
+  {
+   "id": 41,
+   "t": [
+    "Культиватор стерневий АКР-3,6",
+    "AKR-3.6 stubble cultivator"
+   ],
+   "c": "implements",
+   "s": "cult",
+   "b": 17,
+   "y": 0,
+   "p": 900,
+   "cu": "USD",
+   "hp": 0,
+   "h": 0,
+   "cb": null,
+   "tr": null,
+   "ds": [
+    "Під трактор від 150 к.с. Працює на глибину до 25 см. Не вистачає 4 лапок, без зварок.",
+    "For tractors from 150 hp. Working depth up to 25 cm. 4 tines missing, no welds."
+   ],
+   "n": 8,
+   "note": null,
+   "loc": [
+    "с. Патріотівка",
+    "Patriotivka village"
+   ],
+   "r": 16
+  },
+  {
+   "id": 42,
+   "t": [
+    "Трактор гусеничний Challenger MT765B",
+    "Challenger MT765B track tractor"
+   ],
+   "c": "tractors",
+   "s": "crawler",
+   "b": 9,
+   "y": 2011,
+   "p": 67000,
+   "cu": "USD",
+   "hp": 0,
+   "h": 13800,
+   "cb": null,
+   "tr": null,
+   "ds": [
+    "2011 року випуску. Напрацювання 13 800 мтг. Обслужений, готовий до роботи!",
+    "2011. 13,800 engine hours. Serviced, ready to work."
+   ],
+   "n": 20,
+   "note": null,
+   "loc": [
+    "с. Патріотівка",
+    "Patriotivka village"
    ],
    "r": 16
   }
@@ -893,6 +1205,8 @@ window.AGRO_DATA = {
   "Червона зірка (Elvorti)",
   "Степ",
   "КамАЗ",
-  "Gregoire Besson"
+  "Gregoire Besson",
+  "Kverneland",
+  "ZTS"
  ]
 };
