@@ -1180,6 +1180,34 @@ window.AGRO_DATA = {
     "Patriotivka village"
    ],
    "r": 16
+  },
+  {
+   "id": 43,
+   "t": [
+    "Трактор МТЗ-80 + плуг ПЛН-3-35",
+    "MTZ-80 tractor + PLN-3-35 plough"
+   ],
+   "c": "tractors",
+   "s": "wheel",
+   "b": 6,
+   "y": 0,
+   "p": 3500,
+   "cu": "USD",
+   "hp": 0,
+   "h": 0,
+   "cb": null,
+   "tr": null,
+   "ds": [
+    "На стартері. Гарний робочий стан. Плуг ПЛН-3-35 входить у ціну. З документами.",
+    "Electric starter. Good working condition. PLN-3-35 plough included in the price. With documents."
+   ],
+   "n": 16,
+   "note": null,
+   "loc": [
+    "м. Лебедин",
+    "Lebedyn"
+   ],
+   "r": 16
   }
  ],
  "BR": [
