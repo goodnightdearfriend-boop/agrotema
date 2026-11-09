@@ -1208,6 +1208,172 @@ window.AGRO_DATA = {
     "Lebedyn"
    ],
    "r": 16
+  },
+  {
+   "id": 44,
+   "t": [
+    "КамАЗ 55102 «Колгоспник»",
+    "KamAZ 55102 «Kolkhoznik»"
+   ],
+   "c": "transport",
+   "s": "truck",
+   "b": 21,
+   "y": 0,
+   "p": 6000,
+   "cu": "USD",
+   "hp": 0,
+   "h": 0,
+   "cb": null,
+   "tr": null,
+   "ds": [
+    "Гарний робочий стан. Продається з переоформленням.",
+    "Good working condition. Sold with re-registration."
+   ],
+   "n": 17,
+   "note": null,
+   "loc": [
+    "м. Лебедин",
+    "Lebedyn"
+   ],
+   "r": 16
+  },
+  {
+   "id": 45,
+   "t": [
+    "Посівний комплекс Kuhn Espro 6000R",
+    "Kuhn Espro 6000R seed drill"
+   ],
+   "c": "implements",
+   "s": "seeder",
+   "b": 13,
+   "y": 2015,
+   "p": 49000,
+   "cu": "USD",
+   "hp": 0,
+   "h": 0,
+   "cb": null,
+   "tr": null,
+   "ds": [
+    "2015 рік випуску. Ширина 6 метрів. Стан: готова до роботи. Невелике напрацювання.",
+    "2015. 6 m width. Ready to work. Low usage."
+   ],
+   "n": 15,
+   "note": null
+  },
+  {
+   "id": 46,
+   "t": [
+    "Посівний комплекс Mzuri Pro-Til 4T",
+    "Mzuri Pro-Til 4T seed drill"
+   ],
+   "c": "implements",
+   "s": "seeder",
+   "b": 26,
+   "y": 2019,
+   "p": 95000,
+   "cu": "USD",
+   "hp": 0,
+   "h": 0,
+   "cb": null,
+   "tr": null,
+   "ds": [
+    "2019 року випуску. Робоча ширина 4 м. Сівалка призначена для роботи за технологією Strip-Till: за один прохід готує смугу ґрунту, вносить добрива й висіває насіння. Ідеальна сівалка для посіву ріпаку!",
+    "2019. 4 m working width. Strip-Till drill: prepares the soil strip, applies fertiliser and sows seed in one pass. Ideal for oilseed rape."
+   ],
+   "n": 13,
+   "note": null
+  },
+  {
+   "id": 47,
+   "t": [
+    "Сівалка пропашна Kinze 3600, 16 рядів",
+    "Kinze 3600 row planter, 16 rows"
+   ],
+   "c": "implements",
+   "s": "seeder",
+   "b": 25,
+   "y": 2014,
+   "p": 45000,
+   "cu": "USD",
+   "hp": 0,
+   "h": 0,
+   "cb": null,
+   "tr": null,
+   "ds": [
+    "2014 року випуску. 16 рядків. Сухі добрива. Турбодиски. Комп'ютер та маркери в комплекті. Гарний робочий стан.",
+    "2014. 16 rows. Dry fertiliser. Turbo discs. Monitor and markers included. Good working condition."
+   ],
+   "n": 14,
+   "note": null
+  },
+  {
+   "id": 48,
+   "t": [
+    "Сівалка Kinze 3000, 8 рядів",
+    "Kinze 3000 row planter, 8 rows"
+   ],
+   "c": "implements",
+   "s": "seeder",
+   "b": 25,
+   "y": 2014,
+   "p": 17000,
+   "cu": "USD",
+   "hp": 0,
+   "h": 0,
+   "cb": null,
+   "tr": null,
+   "ds": [
+    "2014 року випуску. 8 рядків. Сухі добрива. Встановлені розчищувачі рядків та турбодиски! Комп'ютер та маркери в комплекті. В наявності 2 шт., одна в базовій комплектації.",
+    "2014. 8 rows. Dry fertiliser. Row cleaners and turbo discs fitted. Monitor and markers included. 2 units available, one in base configuration."
+   ],
+   "n": 23,
+   "note": null
+  },
+  {
+   "id": 49,
+   "t": [
+    "Жатка зернова Geringhoff Harvest Star Vario 660",
+    "Geringhoff Harvest Star Vario 660 grain header"
+   ],
+   "c": "harvesters",
+   "s": "header",
+   "b": 27,
+   "y": 2013,
+   "p": 22000,
+   "cu": "USD",
+   "hp": 0,
+   "h": 0,
+   "cb": null,
+   "tr": null,
+   "ds": [
+    "2013 року випуску. Адаптована під Case / New Holland. Складається в транспортну ширину 3 метри. Робоча ширина 6,6 метра. Комп'ютер в наявності!",
+    "2013. Adapted for Case / New Holland. Folds to 3 m transport width. 6.6 m working width. Monitor included."
+   ],
+   "n": 19,
+   "note": null
+  },
+  {
+   "id": 50,
+   "t": [
+    "Жатка Case IH 3020 TerraFlex",
+    "Case IH 3020 TerraFlex header"
+   ],
+   "c": "harvesters",
+   "s": "header",
+   "b": 3,
+   "y": 2021,
+   "p": 30000,
+   "cu": "USD",
+   "hp": 0,
+   "h": 0,
+   "cb": null,
+   "tr": null,
+   "ds": [
+    "Стан нової! 2021 року випуску!",
+    "Like new! 2021."
+   ],
+   "n": 24,
+   "note": null
   }
  ],
  "BR": [
@@ -1235,6 +1401,9 @@ window.AGRO_DATA = {
   "КамАЗ",
   "Gregoire Besson",
   "Kverneland",
-  "ZTS"
+  "ZTS",
+  "Kinze",
+  "Mzuri",
+  "Geringhoff"
  ]
 };
