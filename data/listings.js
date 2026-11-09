@@ -560,7 +560,8 @@ window.AGRO_DATA = {
    ],
    "r": 16,
    "note": null,
-   "cu": "USD"
+   "cu": "USD",
+   "sold": true
   },
   {
    "id": 21,
@@ -1207,7 +1208,8 @@ window.AGRO_DATA = {
     "м. Лебедин",
     "Lebedyn"
    ],
-   "r": 16
+   "r": 16,
+   "sold": true
   },
   {
    "id": 44,

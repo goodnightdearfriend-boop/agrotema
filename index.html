@@ -121,6 +121,14 @@ select.in{width:auto;cursor:pointer}
 .facts{display:flex;flex-wrap:wrap;gap:4px 10px;font-size:13px;color:var(--muted)}
 .loc{display:flex;gap:5px;align-items:center;font-size:13px;color:var(--muted)}
 .loc svg{flex:none}
+.soldtag{position:absolute;right:10px;top:10px;background:#c8181e;color:#fff;font-weight:800;font-size:12px;letter-spacing:.08em;text-transform:uppercase;border-radius:999px;padding:4px 10px}
+.card.sold .price{text-decoration:line-through;color:var(--muted)}
+.card.sold .ph-box .fg{filter:grayscale(.35)}
+.price.was{text-decoration:line-through;color:var(--muted)!important}
+.soldnote{display:grid;gap:2px;background:#c8181e14;border:1px solid #c8181e66;border-radius:12px;padding:10px 12px;font-size:14px}
+.soldnote b{color:#c8181e;text-transform:uppercase;letter-spacing:.06em;font-size:13px}
+.chip.soldchip{border-color:#c8181e66}
+.chip.soldchip.on{background:#c8181e;border-color:#c8181e;color:#fff}
 .empty{text-align:center;color:var(--muted);padding:48px 0}
 
 /* sheet */
@@ -277,6 +285,7 @@ const T={
  askTitle:["Цікавить ця техніка?","Interested in this machine?"],askHint:["Назвіть оголошення під час дзвінка, щоб ми швидше знайшли потрібну техніку.","Mention the listing name when you call so we can find it quickly."],
  photo:["фото","photos"],prev:["Попереднє фото","Previous photo"],next:["Наступне фото","Next photo"],closeL:["Закрити","Close"],
  mailNote:["Пошта для зв'язку та підтримки","Email for enquiries and support"],
+ soldTab:["Продано","Sold"],soldTag:["Продано","Sold"],soldHint:["Ця техніка вже продана. Зателефонуйте — підберемо схожу.","This machine has been sold. Call us and we will find a similar one."],askSimilar:["Шукаєте схожу техніку?","Looking for something similar?"],
  foot:["продаж сільгосптехніки по Україні","farm machinery sales across Ukraine"]
 };
 const C={
@@ -327,22 +336,22 @@ function applyLang(){
  $("regWrap").hidden=usedL.length<2;
  const r=$("reg"),rv=r.value;r.innerHTML=`<option value="">${t("all")}</option>`+usedL.map(k=>{const x=D.find(i=>locKey(i)==k);return `<option value="${esc(k)}">${esc(n(x.loc))} (${D.filter(i=>locKey(i)==k).length})</option>`}).join("");r.value=rv;
  const pe=$("pr"),pv=pe.value,uk=lang=="uk",fm=v=>"$"+v.toLocaleString(uk?"uk-UA":"en-US");
- pe.innerHTML=`<option value="">${t("anyPrice")}</option>`+PR.map(([a,z],i)=>{const c=D.filter(x=>usd(x)>=a&&usd(x)<z).length;if(!c)return "";const l=a==0?(uk?"до ":"up to ")+fm(z):z>=1e9?(uk?"від ":"from ")+fm(a):fm(a)+" – "+fm(z);return `<option value="${i}">${l} (${c})</option>`}).join("");pe.value=pv;
+ pe.innerHTML=`<option value="">${t("anyPrice")}</option>`+PR.map(([a,z],i)=>{const c=D.filter(x=>!x.sold&&usd(x)>=a&&usd(x)<z).length;if(!c)return "";const l=a==0?(uk?"до ":"up to ")+fm(z):z>=1e9?(uk?"від ":"from ")+fm(a):fm(a)+" – "+fm(z);return `<option value="${i}">${l} (${c})</option>`}).join("");pe.value=pv;
  chips();render();
  if(open!=null)openSheet(open,cur);
 }
 function chips(){
- const cnt=k=>D.filter(x=>x.c==k).length;
- $("cats").innerHTML=`<button class="chip ${cat?"":"on"}" data-c="">${t("all")}<small class="num">${D.length}</small></button>`+
-  Object.entries(C).map(([k,v])=>`<button class="chip ${cat==k?"on":""}" data-c="${k}">${n(v[0])}<small class="num">${cnt(k)}</small></button>`).join("");
- const subs=cat?Object.entries(C[cat][1]).filter(([k])=>D.some(x=>x.c==cat&&x.s==k)):[];
+ const A=D.filter(x=>!x.sold),S=D.length-A.length,cnt=k=>A.filter(x=>x.c==k).length;
+ $("cats").innerHTML=`<button class="chip ${cat?"":"on"}" data-c="">${t("all")}<small class="num">${A.length}</small></button>`+
+  Object.entries(C).map(([k,v])=>`<button class="chip ${cat==k?"on":""}" data-c="${k}">${n(v[0])}<small class="num">${cnt(k)}</small></button>`).join("")+(S?`<button class="chip soldchip ${cat=="sold"?"on":""}" data-c="sold">✓ ${t("soldTab")}<small class="num">${S}</small></button>`:"");
+ const subs=cat&&C[cat]?Object.entries(C[cat][1]).filter(([k])=>A.some(x=>x.c==cat&&x.s==k)):[];
  $("subs").hidden=subs.length<2;
- $("subs").innerHTML=subs.map(([k,v])=>`<button class="chip ${sub==k?"on":""}" data-s="${k}">${n(v)}<small class="num">${D.filter(x=>x.c==cat&&x.s==k).length}</small></button>`).join("");
+ $("subs").innerHTML=subs.map(([k,v])=>`<button class="chip ${sub==k?"on":""}" data-s="${k}">${n(v)}<small class="num">${A.filter(x=>x.c==cat&&x.s==k).length}</small></button>`).join("");
 }
 const num=id=>{const v=$(id).value.replace(/\D/g,"");return v===""?null:+v};
 function list(){
  const q=$("q").value.trim().toLowerCase(),b=$("brand").value,r=$("reg").value,pr=PR[$("pr").value]||null,y1=num("y1"),y2=num("y2");
- let a=D.filter(x=>(!cat||x.c==cat)&&(!sub||x.s==sub)&&(b===""||x.b==b)&&(r===""||locKey(x)==r)
+ let a=D.filter(x=>(cat=="sold"?x.sold:!x.sold)&&(!cat||cat=="sold"||x.c==cat)&&(!sub||x.s==sub)&&(b===""||x.b==b)&&(r===""||locKey(x)==r)
   &&(!pr||(usd(x)>=pr[0]&&usd(x)<pr[1]))&&(y1==null||(x.y&&x.y>=y1))&&(y2==null||(x.y&&x.y<=y2))
   &&(!q||(x.t.join(" ")+" "+BR[x.b]+" "+(x.loc?x.loc.join(" "):"")).toLowerCase().includes(q)));
  const so="rnd";
@@ -355,8 +364,8 @@ function render(){
  $("empty").hidden=a.length>0;
  $("grid").innerHTML=a.map(x=>{
   const f=[x.y||"",brand(x),x.hp?x.hp+" "+t("hpu"):"",x.h?x.h.toLocaleString(lang=="uk"?"uk-UA":"en-US")+" "+t("hrs"):""].filter(Boolean);
-  return `<button class="card" type="button" data-id="${x.id}">
-  <div class="ph-box"><img class="bg" src="t/${x.id}.jpg" alt="" aria-hidden="true" loading="lazy" decoding="async"><img class="fg" src="t/${x.id}.jpg" alt="${esc(n(x.t))}" loading="lazy" decoding="async"><span class="badge num">${CAM}${x.n}</span></div>
+  return `<button class="card${x.sold?" sold":""}" type="button" data-id="${x.id}">
+  <div class="ph-box"><img class="bg" src="t/${x.id}.jpg" alt="" aria-hidden="true" loading="lazy" decoding="async"><img class="fg" src="t/${x.id}.jpg" alt="${esc(n(x.t))}" loading="lazy" decoding="async"><span class="badge num">${CAM}${x.n}</span>${x.sold?`<span class="soldtag">${t("soldTag")}</span>`:""}</div>
   <div class="body"><span class="kind">${esc(n(C[x.c][1][x.s]))}</span><h3>${esc(n(x.t))}</h3><span class="price num">${money(x.p,x.cu)}${x.note?`<span class="pnote">${esc(n(x.note))}</span>`:""}</span>
   ${f.length?`<span class="facts num">${f.map(esc).join("<span aria-hidden='true'>·</span>")}</span>`:""}
   <span class="loc">${PIN}${esc(locTxt(x))}</span></div></button>`}).join("");
@@ -373,10 +382,10 @@ function openSheet(id,k){
  <div class="info">
   <span class="kind">${esc(n(C[x.c][0]))} · ${esc(n(C[x.c][1][x.s]))}</span>
   <h2>${esc(n(x.t))}</h2>
-  <div class="price num">${money(x.p,x.cu)}${x.note?`<span class="pnote">${esc(n(x.note))}</span>`:""}</div>
+  ${x.sold?`<div class="soldnote"><b>${t("soldTag")}</b>${t("soldHint")}</div>`:""}<div class="price num${x.sold?" was":""}">${money(x.p,x.cu)}${x.note?`<span class="pnote">${esc(n(x.note))}</span>`:""}</div>
   <dl class="spec">${row(t("brand"),brand(x))}${row(t("year"),x.y||"")}${row(t("hp"),x.hp?x.hp+" "+t("hpu"):"")}${row(t("hours"),x.h?x.h.toLocaleString(lang=="uk"?"uk-UA":"en-US")+" "+t("hrs"):"")}${row(t("cabin"),x.cb===0?t("yes"):"")}${row(t("trans"),x.tr===0?t("manual"):"")}${row(t("loc"),locTxt(x))}</dl>
   <p class="desc">${esc(n(x.ds))}</p>
-  <div class="cta"><b>${t("askTitle")}</b><span class="ph num">${PHONE}</span>
+  <div class="cta"><b>${x.sold?t("askSimilar"):t("askTitle")}</b><span class="ph num">${PHONE}</span>
    <div class="row"><a class="btn y" href="tel:${TEL}">${t("call")}</a><button class="btn o" type="button" onclick="copyPhone()">${t("copy")}</button><a class="btn o" href="https://www.tiktok.com/@agrotema.ua" target="_blank" rel="noopener">TikTok</a></div>
    <span class="hint">${t("askHint")}</span><span class="hint">${t("mailNote")}: <a href="mailto:${MAILADDR}" style="font-weight:700;color:var(--ink)">${MAILADDR}</a></span></div>
  </div>`;
