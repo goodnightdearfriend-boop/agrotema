@@ -1406,6 +1406,68 @@ window.AGRO_DATA = {
     "Boryspil"
    ],
    "r": 8
+  },
+  {
+   "id": 51,
+   "t": [
+    "Культиватор Case IH Tiger-Mate II, 9,8 м",
+    "Case IH Tiger-Mate II field cultivator, 9.8 m"
+   ],
+   "c": "implements",
+   "s": "cult",
+   "b": 3,
+   "y": 2010,
+   "p": 29500,
+   "cu": "USD",
+   "hp": 0,
+   "h": 0,
+   "cb": null,
+   "tr": null,
+   "ds": [
+    "2010 рік. Кількість рядів: 5. Ширина 9,8 м.",
+    "2010. 5 rows of tines. 9.8 m working width."
+   ],
+   "n": 3,
+   "note": [
+    "з ПДВ",
+    "incl. VAT"
+   ],
+   "loc": [
+    "м. Суми",
+    "Sumy"
+   ],
+   "r": 16
+  },
+  {
+   "id": 52,
+   "t": [
+    "Культиватор Case IH / DMI Tiger-Mate II, 11,6 м",
+    "Case IH / DMI Tiger-Mate II field cultivator, 11.6 m"
+   ],
+   "c": "implements",
+   "s": "cult",
+   "b": 3,
+   "y": 2008,
+   "p": 30500,
+   "cu": "USD",
+   "hp": 0,
+   "h": 0,
+   "cb": null,
+   "tr": null,
+   "ds": [
+    "2008 рік. Ширина 11,6 м.",
+    "2008. 11.6 m working width."
+   ],
+   "n": 5,
+   "note": [
+    "з ПДВ",
+    "incl. VAT"
+   ],
+   "loc": [
+    "м. Суми",
+    "Sumy"
+   ],
+   "r": 16
   }
  ],
  "BR": [
