@@ -1258,7 +1258,12 @@ window.AGRO_DATA = {
     "2015. 6 m width. Ready to work. Low usage."
    ],
    "n": 15,
-   "note": null
+   "note": null,
+   "loc": [
+    "м. Бориспіль",
+    "Boryspil"
+   ],
+   "r": 8
   },
   {
    "id": 46,
@@ -1281,7 +1286,12 @@ window.AGRO_DATA = {
     "2019. 4 m working width. Strip-Till drill: prepares the soil strip, applies fertiliser and sows seed in one pass. Ideal for oilseed rape."
    ],
    "n": 13,
-   "note": null
+   "note": null,
+   "loc": [
+    "м. Бориспіль",
+    "Boryspil"
+   ],
+   "r": 8
   },
   {
    "id": 47,
@@ -1304,7 +1314,12 @@ window.AGRO_DATA = {
     "2014. 16 rows. Dry fertiliser. Turbo discs. Monitor and markers included. Good working condition."
    ],
    "n": 14,
-   "note": null
+   "note": null,
+   "loc": [
+    "м. Бориспіль",
+    "Boryspil"
+   ],
+   "r": 8
   },
   {
    "id": 48,
@@ -1327,7 +1342,12 @@ window.AGRO_DATA = {
     "2014. 8 rows. Dry fertiliser. Row cleaners and turbo discs fitted. Monitor and markers included. 2 units available, one in base configuration."
    ],
    "n": 23,
-   "note": null
+   "note": null,
+   "loc": [
+    "м. Бориспіль",
+    "Boryspil"
+   ],
+   "r": 8
   },
   {
    "id": 49,
@@ -1350,7 +1370,12 @@ window.AGRO_DATA = {
     "2013. Adapted for Case / New Holland. Folds to 3 m transport width. 6.6 m working width. Monitor included."
    ],
    "n": 19,
-   "note": null
+   "note": null,
+   "loc": [
+    "м. Бориспіль",
+    "Boryspil"
+   ],
+   "r": 8
   },
   {
    "id": 50,
@@ -1373,7 +1398,12 @@ window.AGRO_DATA = {
     "Like new! 2021."
    ],
    "n": 24,
-   "note": null
+   "note": null,
+   "loc": [
+    "м. Бориспіль",
+    "Boryspil"
+   ],
+   "r": 8
   }
  ],
  "BR": [
